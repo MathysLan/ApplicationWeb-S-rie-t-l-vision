@@ -1,0 +1,38 @@
+{
+    "name": "lang0085/sae2-01",
+    "description": "Développement d'une application Web dans le cadre de la SAE2-01",
+    "type": "project",
+    "version": "2.7.2",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mathys Langiny",
+            "email": "mathys.langiny@etudiant.univ-reims.fr"
+        },
+        {
+            "name": "Mattéo Jadot-Dufour",
+            "email": "matteo.jadot-dufour@etudiant.univ-reims.fr"
+        }
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.58"
+    },
+    "scripts": {
+        "start:linux": "bin/run-server.sh",
+        "start:windows": "bin/run-server.bat",
+        "start": "@start:linux",
+        "test:cs": "vendor/bin/php-cs-fixer fix --dry-run",
+        "fix:cs": "vendor/bin/php-cs-fixer fix"
+    },
+    "config": {
+        "process-timeout": 0
+    },
+    "require": {
+        "ext-pdo": "*"
+    }
+}
