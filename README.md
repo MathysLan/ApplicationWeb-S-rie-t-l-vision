@@ -1,7 +1,7 @@
 # SAE2-01
 ## Membres
-* LANGINY Mathys
-* JADOT-DUFOUR Mattéo
+* LANGINY Mathys (lang0085)
+* JADOT-DUFOUR Mattéo (jado0006)
 
 ## Installation / Configuration
 - Récupération du dépot
