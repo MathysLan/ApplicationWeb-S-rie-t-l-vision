@@ -5,6 +5,7 @@ namespace Entity\Collection;
 
 use Database\MyPdo;
 use Entity\Tvshow;
+use PDO;
 
 class TvshowCollection
 {
