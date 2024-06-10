@@ -10,7 +10,7 @@ class Poster
     private string $jpeg;
 
     /**
-     * Accesseur de l'id de l'instance Poster. Renvoie un entier?
+     * Accesseur de l'id de l'instance Poster. Renvoie un entier
      *
      * @return int
      */
