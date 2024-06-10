@@ -23,11 +23,13 @@ $webPage = new AppWebPage();
 $webPage->setTitle(AppWebPage::escapeString("Séries TV : {$tvShow->getName()}"));
 $webPage->appendContent(
     <<<HTML
-<div class="tvShow__presentation>">
+<div class="tvShow__presentation">
     <div class='tvshow__poster'><img src='/poster.php?posterId={$tvShow->getPosterId()}' alt='Cover de {$webPage->escapeString($tvShow->getName())}'></div>
-    <p class="tvshow__name">{$webPage->escapeString($tvShow->getName())}</p>
-    <p class="tvshow__originalName">{$webPage->escapeString($tvShow->getOriginalName())}</p>
-    <p class="tvshow__overview">{$webPage->escapeString($tvShow->getOverview())}</p>
+        <div class="tvShow__texte">
+            <p class="tvshow__name">{$webPage->escapeString($tvShow->getName())}</p>
+            <p class="tvshow__originalName">{$webPage->escapeString($tvShow->getOriginalName())}</p>
+            <p class="tvshow__overview">{$webPage->escapeString($tvShow->getOverview())}</p>
+        </div>
 </div>
 HTML
 );
