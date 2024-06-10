@@ -143,8 +143,10 @@ class TvShow
     }
 
     /**
-     * @param int $id
-     * @return TvShow
+     * Récupère l'instance de la série à partir de son identifiant
+     *
+     * @param int $id L'identifiant de la série
+     * @return TvShow L'instance de TvShow correspondant à la série
      * @throws Exception\EntityNotFoundException
      */
     public static function findById(int $id): TvShow
