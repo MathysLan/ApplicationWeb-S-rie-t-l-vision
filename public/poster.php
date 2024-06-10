@@ -15,7 +15,8 @@ try {
     echo $artist->getJpeg();
 } catch (ParameterException) {
     http_response_code(400);
-    header("Location: /");
+    header("Content-Type: image/png");
+    readfile("{$_SERVER['DOCUMENT_ROOT']}/img/default.png");
 } catch (EntityNotFoundException) {
     http_response_code(404);
     header("Content-Type: image/png");
