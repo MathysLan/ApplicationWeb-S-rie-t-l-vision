@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+
 class Poster
 {
     private int $id;
@@ -27,5 +29,20 @@ class Poster
     public function getJpeg(): string
     {
         return $this->jpeg;
+    }
+
+    public static function findById(int $id): Poster
+    {
+        $requete = <<<SQL
+        SELECT id,jpeg
+        FROM Poster
+        WHERE id = ?
+        SQL;
+        $stmt = MyPDO::getInstance()->prepare($requete);
+        $stmt->execute([$id]);
+        if (!($ligne = $stmt->fetchObject("Entity\Poster"))) {
+            throw new Exception\EntityNotFoundException();
+        }
+        return $ligne;
     }
 }
