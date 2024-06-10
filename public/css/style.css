@@ -8,19 +8,15 @@ html,body
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     overflow: hidden;
-
 }
 
 .header, h1
 {
-
     text-align: center;
     margin: 0;
     padding: 0;
     background-color: #333;
     color: #fff;
-
-
 }
 
 
@@ -36,15 +32,21 @@ html,body
 
 }
 
-a
+a, .tvShow
 {
-    display: block;
-    padding-left: 1rem; /* Ajoute un espace entre l'icône et le texte du lien */
+    display: flex;
+    flex-direction: row;
     color: #333; /* Couleur du texte */
     text-decoration: none; /* Supprime le soulignement des liens */
-    text-align: left;
     margin: 3px;
 }
+
+a
+{
+    margin: 3px;
+    border: black 1px solid;
+}
+
 .footer
 {
 
