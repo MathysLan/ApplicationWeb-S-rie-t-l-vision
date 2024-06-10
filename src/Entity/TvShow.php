@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use PDO;
+
 class TvShow
 {
     private int $id;
@@ -137,5 +140,29 @@ class TvShow
     public function setPosterId(int $posterId): void
     {
         $this->posterId = $posterId;
+    }
+
+    /**
+     * Récupère l'instance de la série à partir de son identifiant
+     *
+     * @param int $id L'identifiant de la série
+     * @return TvShow L'instance de TvShow correspondant à la série
+     * @throws Exception\EntityNotFoundException
+     */
+    public static function findById(int $id): TvShow
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            SELECT id, name, originalName, homepage, overview, posterId
+            FROM tvshow
+            WHERE id = :tvShowId
+        SQL
+        );
+        $req->execute(['tvShowId' => $id]);
+        $req->setFetchMode(PDO::FETCH_CLASS, 'Entity\TvShow');
+        if (($ligne = $req->fetch()) === false) {
+            throw new Exception\EntityNotFoundException();
+        }
+        return $ligne;
     }
 }

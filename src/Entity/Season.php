@@ -10,7 +10,7 @@ class Season
     private int $tvShowId;
     private string $name;
     private int $seasonNumber;
-    private int $posterId;
+    private ?int $posterId;
 
     /**
      * Accesseur de l'Id de la classe season. Renvoie un entier.
@@ -99,9 +99,9 @@ class Season
     /**
      * Accesseur de l'Id du poster de la classe season. Renvoie un entier.
      *
-     * @return int
+     * @return int|null
      */
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
@@ -109,10 +109,10 @@ class Season
     /**
      * Mutateurs de l'id du poster de la classe Season, prend en paramètre un entier.
      *
-     * @param int $posterId
+     * @param int|null $posterId
      * @return void
      */
-    public function setPosterId(int $posterId): void
+    public function setPosterId(?int $posterId): void
     {
         $this->posterId = $posterId;
     }
