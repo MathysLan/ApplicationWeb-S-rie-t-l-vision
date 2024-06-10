@@ -25,6 +25,6 @@ class TvshowCollection
          SQL
         );
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, "Entity\Tvshow");
+        return $stmt->fetchAll(PDO::FETCH_CLASS, "Entity\TvShow");
     }
 }
