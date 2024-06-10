@@ -42,7 +42,7 @@ class Poster
     {
         $requete = <<<SQL
         SELECT id,jpeg
-        FROM Poster
+        FROM poster
         WHERE id = ?
         SQL;
         $stmt = MyPDO::getInstance()->prepare($requete);
