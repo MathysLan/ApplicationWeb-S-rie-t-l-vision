@@ -1,60 +1,101 @@
-html,body
-{
+html, body {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
-    margin:0;
+    margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     overflow: hidden;
 }
 
-.header, h1
-{
-    text-align: center;
-    margin: 0;
-    padding: 0;
+.header {
     background-color: #333;
-    color: #fff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
 }
 
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+}
 
-.content
-{
+.content {
     display: flex;
     flex-direction: column;
-    flex:1;
+    flex: 1;
     border: 5px solid grey;
     overflow: auto;
-    margin:  10px;
+    margin: 10px;
     background-color: darkgray;
-
+    padding: 20px;
 }
 
-a, .tvShow
-{
+.list {
     display: flex;
-    flex-direction: row;
-    color: #333; /* Couleur du texte */
-    text-decoration: none; /* Supprime le soulignement des liens */
-    margin: 3px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
-.tvShow:nth-child(2n){
+a, .tvShow {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    color: #333;
+    text-decoration: none;
+    flex: 1;
+    width: 100%;
 }
 
-a
-{
+a {
     margin: 3px;
     border: black 1px solid;
+
 }
 
-.footer
-{
+.tvShow {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    width: 100%;
 
+}
+
+.tvshow__poster
+{
+    display: flex;
+    margin: 2px;
+}
+
+.tvshow__poster img {
+
+    max-height: 200px;
+    margin: auto;
+}
+
+.tvshow__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px;
+    overflow: auto;
+}
+
+.tvshow__name {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.tvshow__overview {
+    font-size: 1em;
+    color: #666;
+}
+
+.footer {
     text-align: center;
     margin: 0;
     padding: 0;
@@ -62,7 +103,26 @@ a
     color: #fff;
 }
 
-.tvshow__info{
-    display: flex;
-    flex-direction: column;
+
+@media (min-width: 400px) {
+    a, .tvShow {
+        flex-direction: row;
+    }
+
+    .tvShow {
+        width: 100%;
+    }
+
+    .tvshow__poster img {
+        width: auto;
+        height: 100%;
+    }
+    .list > a:nth-child(odd) .tvShow {
+        flex-direction: row-reverse;
+    }
+
+    .list > a:nth-child(even) .tvShow {
+        flex-direction: row;
+    }
 }
+
