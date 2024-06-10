@@ -42,7 +42,6 @@ html, body {
 a, .tvShow {
     display: flex;
     flex-direction: column;
-    color: #333;
     text-decoration: none;
     flex: 1;
     width: 100%;
@@ -71,12 +70,13 @@ a {
     margin: 2px;
 }
 
-.tvshow__poster img {
 
+.tvshow__poster img {
+    width: auto;
+    height: 100%;
     max-height: 200px;
     margin: auto;
 }
-
 
 
 .tvshow__info {
@@ -139,7 +139,23 @@ p.tvshow__originalName {
     text-align: center;
 }
 
-@media screen and (min-width: 400px) {
+.episode {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 100%;
+}
+
+.episode__titre
+{
+    display: flex;
+}
+.season__lien
+{
+    border:  transparent;
+}
+@media screen and (min-width: 500px) {
     .tvShow__presentation{
         display: flex;
 
@@ -153,10 +169,7 @@ p.tvshow__originalName {
         width: 100%;
     }
 
-    .tvshow__poster img {
-        width: auto;
-        height: 100%;
-    }
+
     .list > a:nth-child(odd) .tvShow {
         flex-direction: row-reverse;
     }
@@ -170,13 +183,28 @@ p.tvshow__originalName {
     }
 
     p.tvshow__originalName {
-        text-align: right;
+        text-align: left;
     }
 
     .tvShow__texte
     {
         flex:1;
     }
+
+    .season__presentation
+    {
+        display: flex;
+        margin: 5px;
+    }
+    .season__text
+    {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-content: end;
+        flex-wrap: wrap;
+    }
+
 
 }
 
