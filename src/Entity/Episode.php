@@ -15,7 +15,7 @@ class Episode
     /**
      * Accesseur de l'Id de l'épisode de la classe Episode. Renvoie un entier.
      *
-     * @return int
+     * @return int Renvoie l'id
      */
     public function getId(): int
     {
@@ -25,7 +25,7 @@ class Episode
     /**
      * Accesseur de l'Id de la saison de l'épisode de la classe Episode. Renvoie un entier.
      *
-     * @return int
+     * @return int Renvoie l'id de la saison
      */
     public function getSeasonId(): int
     {
@@ -35,7 +35,7 @@ class Episode
     /**
      * Accesseur du nom de l'épisode de la classe Episode. Renvoie un string.
      *
-     * @return string
+     * @return string Renvoie le nom de l'épisode
      */
     public function getName(): string
     {
@@ -45,7 +45,7 @@ class Episode
     /**
      * Accesseur du résumé de l'épisode de la classe Episode. Renvoie un string.
      *
-     * @return string
+     * @return string Renvoie le résumé de l'épisode
      */
     public function getOverview(): string
     {
@@ -55,7 +55,7 @@ class Episode
     /**
      * Accesseur du nombre d'épisodes de la classe Episode. Renvoie un entier.
      *
-     * @return int
+     * @return int Renvoie le nombre correspondant à l'épisode
      */
     public function getEpisodeNumber(): int
     {
