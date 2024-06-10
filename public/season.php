@@ -40,8 +40,10 @@ $webPage->appendContent("<div class='list'>");
 foreach(EpisodeCollection::findBySeasonId(intval($seasonId)) as $episode) {
     $webPage->appendContent(<<<HTML
         <div class="episode">
-            <p class='episode__number'>{$episode->getEpisodeNumber()}</p>
-            <p class='episode__name'>{$webPage->escapeString($episode->getName())}</p>
+            <div class="episode__titre">
+                <p class='episode__number'>{$episode->getEpisodeNumber()} - </p>
+                <p class='episode__name'>{$webPage->escapeString($episode->getName())}</p>
+            </div>
             <p class='episode__overview'>{$webPage->escapeString($episode->getOverview())}</p>
         </div>
         HTML);
