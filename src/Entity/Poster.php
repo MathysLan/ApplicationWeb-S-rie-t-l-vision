@@ -31,7 +31,14 @@ class Poster
         return $this->jpeg;
     }
 
-    public static function findById(int $id): Poster
+    /**
+     * Méthode statique renvoyant une instance de la classe Poster. Elle prend en paramètre un entier.
+     *
+     * @param int $id
+     * @return Poster
+     * @throws EntityNotFoundException
+     */
+    public static function findById(int $id): Poster #throws EntityNotFoundException
     {
         $requete = <<<SQL
         SELECT id,jpeg
