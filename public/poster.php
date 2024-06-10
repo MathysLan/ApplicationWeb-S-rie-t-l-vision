@@ -18,7 +18,8 @@ try {
     header("Location: /");
 } catch (EntityNotFoundException) {
     http_response_code(404);
-    header("Location: /img/default.png");
+    header("Content-Type: image/png");
+    readfile("{$_SERVER['DOCUMENT_ROOT']}/img/default.png");
 } catch (Exception) {
     http_response_code(500);
 }
