@@ -22,7 +22,7 @@ class EpisodeCollection
             SELECT id, seasonId, name, overview, episodeNumber
             FROM episode
             WHERE seasonId = :seasonId
-            ORDER BY name
+            ORDER BY episodeNumber
         SQL
         );
         $req->execute(['seasonId' => $SeasonId]);

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use PDO;
+
 class Season
 {
     private int $id;
@@ -117,5 +120,27 @@ class Season
         $this->posterId = $posterId;
     }
 
-
+    /**
+     * Récupère l'instance de la saison à partir de son identifiant
+     *
+     * @param int $id L'identifiant de la saison
+     * @return Season L'instance de Season correspondant à la série
+     * @throws Exception\EntityNotFoundException
+     */
+    public static function findById(int $id): Season
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            SELECT id, tvShowId, name, seasonNumber, posterId
+            FROM season
+            WHERE id = :seasonId
+        SQL
+        );
+        $req->execute(['seasonId' => $id]);
+        $req->setFetchMode(PDO::FETCH_CLASS, 'Entity\Season');
+        if (($ligne = $req->fetch()) === false) {
+            throw new Exception\EntityNotFoundException();
+        }
+        return $ligne;
+    }
 }
