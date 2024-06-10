@@ -18,7 +18,7 @@ try {
     header("Location: /");
 } catch (EntityNotFoundException) {
     http_response_code(404);
-    header("Content-Type: image/png");
+    header("Location: /img/default.png");
 } catch (Exception) {
     http_response_code(500);
 }
