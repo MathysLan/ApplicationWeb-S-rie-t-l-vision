@@ -29,7 +29,7 @@ class TvShow
      * @param int $id L'identifiant du TvShow
      * @return void
      */
-    public function setId(int $id): void
+    private function setId(int $id): void
     {
         $this->id = $id;
     }
