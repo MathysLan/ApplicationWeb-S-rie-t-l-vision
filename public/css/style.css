@@ -41,6 +41,11 @@ a, .tvShow
     margin: 3px;
 }
 
+.tvShow:nth-child(2n){
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 a
 {
     margin: 3px;
@@ -57,3 +62,7 @@ a
     color: #fff;
 }
 
+.tvshow__info{
+    display: flex;
+    flex-direction: column;
+}
