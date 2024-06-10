@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Entity;
+
 class Season
 {
     private int $id;
@@ -44,7 +46,7 @@ class Season
     /**
      * Mutateurs de l'id de la classe Season, prend en paramètre un entier.
      *
-     * @param int $id
+     * @param int $tvShowId
      * @return void
      */
     public function setTvShowId(int $tvShowId): void
@@ -86,7 +88,7 @@ class Season
     /**
      * Mutateurs du nombre de saisons de la classe Season, prend en paramètre un entier.
      *
-     * @param int $id
+     * @param int $seasonNumber
      * @return void
      */
     public function setSeasonNumber(int $seasonNumber): void
@@ -107,7 +109,7 @@ class Season
     /**
      * Mutateurs de l'id du poster de la classe Season, prend en paramètre un entier.
      *
-     * @param int $id
+     * @param int $posterId
      * @return void
      */
     public function setPosterId(int $posterId): void
