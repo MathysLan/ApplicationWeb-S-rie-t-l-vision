@@ -61,7 +61,7 @@ a {
     overflow: hidden;
     text-align: left;
     width: 100%;
-
+    flex-direction: column;
 }
 
 .tvshow__poster
@@ -88,6 +88,7 @@ a {
     font-size: 1.5em;
     margin: 0 0 10px;
     color: #333;
+    text-align: center;
 }
 
 .tvshow__overview {
@@ -124,5 +125,10 @@ a {
     .list > a:nth-child(even) .tvShow {
         flex-direction: row;
     }
+    .tvshow__name {
+
+        text-align: initial;
+    }
+
 }
 
