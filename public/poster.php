@@ -7,7 +7,7 @@ use Entity\Exception\ParameterException;
 use Entity\Poster;
 
 try {
-    if (!isset($_GET["posterId"]) || !is_numeric($_GET["posterId"])) {
+    if (!isset($_GET["posterId"]) || !ctype_digit($_GET["posterId"])) {
         throw new ParameterException();
     }
     $artist = Poster::findById(intval($_GET["posterId"]));
