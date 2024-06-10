@@ -11,6 +11,8 @@ use PDO;
 class SeasonCollection
 {
     /**
+     * Méthode static renvoyant toutes les saisons avec leur id, leur id d'émission, leur nom, leur numéro de saison et le numéro du poster associé.
+     *
      * @param int $tvShowId
      * @return Season[]
      */
