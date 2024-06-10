@@ -29,12 +29,21 @@ html,body
     display: flex;
     flex-direction: column;
     flex:1;
-    border : 5px black solid;
+    border: 5px solid grey;
     overflow: auto;
     margin:  10px;
-    width: 100%;
+    background-color: darkgray;
 
+}
 
+a
+{
+    display: block;
+    padding-left: 1rem; /* Ajoute un espace entre l'icône et le texte du lien */
+    color: #333; /* Couleur du texte */
+    text-decoration: none; /* Supprime le soulignement des liens */
+    text-align: left;
+    margin: 3px;
 }
 .footer
 {
