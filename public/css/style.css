@@ -51,6 +51,7 @@ a, .tvShow {
 a {
     margin: 3px;
     border: black 1px solid;
+    border-radius: 8px;
 
 }
 
@@ -76,6 +77,8 @@ a {
     margin: auto;
 }
 
+
+
 .tvshow__info {
     display: flex;
     flex-direction: column;
@@ -94,6 +97,8 @@ a {
 .tvshow__overview {
     font-size: 1em;
     color: #666;
+    margin-left: 5px;
+    overflow: hidden;
 }
 
 .footer {
@@ -104,8 +109,42 @@ a {
     color: #fff;
 }
 
+.season {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    flex:1;
+}
 
-@media (min-width: 400px) {
+.season:hover {
+    background: #dddddd;
+}
+
+
+.season__poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.season__name {
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+p.tvshow__originalName {
+    text-align: center;
+}
+
+@media screen and (min-width: 400px) {
+    .tvShow__presentation{
+        display: flex;
+
+    }
+
     a, .tvShow {
         flex-direction: row;
     }
@@ -127,7 +166,16 @@ a {
     }
     .tvshow__name {
 
-        text-align: initial;
+        text-align: left;
+    }
+
+    p.tvshow__originalName {
+        text-align: right;
+    }
+
+    .tvShow__texte
+    {
+        flex:1;
     }
 
 }
