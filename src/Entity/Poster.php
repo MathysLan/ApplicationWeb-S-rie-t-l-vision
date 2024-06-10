@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+
 class Poster
 {
     private int $id;
@@ -27,5 +29,27 @@ class Poster
     public function getJpeg(): string
     {
         return $this->jpeg;
+    }
+
+    /**
+     * Méthode statique renvoyant une instance de la classe Poster. Elle prend en paramètre un entier.
+     *
+     * @param int $id
+     * @return Poster
+     * @throws EntityNotFoundException
+     */
+    public static function findById(int $id): Poster #throws EntityNotFoundException
+    {
+        $requete = <<<SQL
+        SELECT id,jpeg
+        FROM Poster
+        WHERE id = ?
+        SQL;
+        $stmt = MyPDO::getInstance()->prepare($requete);
+        $stmt->execute([$id]);
+        if (!($ligne = $stmt->fetchObject("Entity\Poster"))) {
+            throw new Exception\EntityNotFoundException();
+        }
+        return $ligne;
     }
 }
