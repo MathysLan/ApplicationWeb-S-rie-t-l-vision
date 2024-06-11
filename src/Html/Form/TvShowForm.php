@@ -56,7 +56,7 @@ class TvShowForm
             <input type="text" name="name" value="$nom" required="required" placeholder="Nom">
             <input type="text" name="originalName" value="$originalName" required="required" placeholder="Nom Original"> 
             <input type="url" name="homepage" value="$homepage" required="required" placeholder="Lien vers la série">
-            <input type="text" name="overview" value="$overview"  required="required" placeholder="Résumé">
+            <textarea name="overview" required="required" placeholder="Résumé" rows="10" >$overview</textarea>
             <button type="submit">Enregistrer</button>
         </form>
         HTML;
