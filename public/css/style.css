@@ -243,6 +243,7 @@ a {
     flex-wrap: wrap;
     flex: 1;
     justify-content: center;
+    width: 95%;
 }
 .filter p a:focus {
     box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
@@ -256,13 +257,6 @@ a {
 .filter p a:active {
     box-shadow: #3c4fe0 0 3px 7px inset;
     transform: translateY(2px);
-}
-
-@media (min-width: 768px) {
-    .button-64 {
-        font-size: 24px;
-        min-width: 196px;
-    }
 }
 
 .season__lien {
