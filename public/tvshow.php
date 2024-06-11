@@ -24,8 +24,8 @@ $webPage->appendContent(
     <<<HTML
 <nav>
     <a href="index.php">Accueil</a>
-    <a href='admin/tvShow-form.php?tvShowId={$tvShow->getId()}'>Modifier</a>
-    <a href='admin/tvShow-delete.php?tvShowId={$tvShow->getId()}'>Supprimer</a>
+    <a href='admin/tvShow-form.php?tvShowId={$tvShow->getId()}&posterId={$tvShow->getPosterId()}'>Modifier</a>
+    <a href='admin/tvShow-delete.php?tvShowId={$tvShow->getId()}&posterId={$tvShow->getPosterId()}'>Supprimer</a>
 </nav>
 <div class="tvShow__presentation">
     <div class='tvshow__poster'><img src='/poster.php?posterId={$tvShow->getPosterId()}' alt='Cover de {$webPage->escapeString($tvShow->getName())}'></div>
@@ -43,7 +43,7 @@ foreach($tvShow->getSeasons() as $season) {
     $webPage->appendContent(<<<HTML
         <a href="season.php?seasonId={$season->getId()}">
         <div class="season">
-            <div class='season__poster'><img src='/poster.php?posterId={$season->getPosterId()}' alt='Cover de la saison {$season->getSeasonNumber()} de la série'></div>
+            <div class='season__poster'><img src='/poster.php?posterId={$season->getPosterId()}' alt='Cover de la saison {$season->getSeasons()}'></div>
             <p class="season__name">{$webPage->escapeString($season->getName())}</p>
         </div>
         </a>

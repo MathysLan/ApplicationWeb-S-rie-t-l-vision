@@ -54,7 +54,7 @@ class TvShowForm
             </head>
             <form method="post" action="$action">
                 <input type="hidden" name="id" value="{$this?->getTvShow()?->getId()}">
-                <input type="hidden" name="posterUd" value="{$this?->getTvShow()?->getPosterId()}">  
+                <input type="hidden" name="posterId" value="{$this?->getTvShow()?->getPosterId()}">  
                 <input type="text" name="name" value="$nom" required="required" placeholder="Nom">
                 <input type="text" name="originalName" value="$originalName" required="required" placeholder="Nom Original"> 
                 <input type="url" name="homepage" value="$homepage" required="required" placeholder="Lien vers la série">
