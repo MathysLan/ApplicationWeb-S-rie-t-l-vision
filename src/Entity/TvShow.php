@@ -153,6 +153,29 @@ class TvShow
     }
 
     /**
+     * Met à jour une série dans la BD
+     *
+     * @return $this La série mise à jour
+     */
+    protected function update(): TvShow
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            UPDATE tvshow
+            SET name = :name,
+                originalName = :originalName,
+                homepage = :homepage,
+                overview = :overview,
+                posterId = :posterId
+            WHERE id = :tvShowId
+        SQL
+        );
+        $req->execute(['name' => $this->getName(), 'tvShowId' => $this->getId(), 'originalName' => $this->getOriginalName(),
+            'homepage' => $this->getHomepage(), 'overview' => $this->getOverview(), $this->getPosterId()]);
+        return $this;
+    }
+
+    /**
      * Insère une série dans la BD
      *
      * @return $this La série insérée
