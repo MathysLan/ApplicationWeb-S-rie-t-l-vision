@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\SeasonCollection;
 use PDO;
 
 class TvShow
@@ -278,5 +279,15 @@ class TvShow
             'homepage' => $this->getHomepage(), 'posterId' => $this->getPosterId()]);
         $this->setId((int)MyPDO::getInstance()->lastInsertId("tvshow"));
         return $this;
+    }
+
+    /**
+     * Liste les saisons de la série
+     *
+     * @return TvShow[]
+     */
+    public function getSeasons(): array
+    {
+        return SeasonCollection::findByTvShowId($this->getId());
     }
 }
