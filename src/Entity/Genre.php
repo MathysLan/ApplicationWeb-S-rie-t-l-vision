@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\GenreCollection;
+use Entity\Collection\TvshowCollection;
 use PDO;
 
 class Genre
@@ -56,5 +58,13 @@ class Genre
         return $ligne;
     }
 
-
+    /**
+     * Liste les séries de ce genre
+     *
+     * @return TvShow[] Liste des séries du genre
+     */
+    public function getTvShow(): array
+    {
+        return TvshowCollection::findByGenreId($this->getId());
+    }
 }
