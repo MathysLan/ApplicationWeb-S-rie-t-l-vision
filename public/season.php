@@ -26,10 +26,12 @@ $webPage = new AppWebPage();
 $webPage->setTitle(AppWebPage::escapeString("Séries TV : {$tvShow->getName()} - {$season->getName()}"));
 $webPage->appendContent(
     <<<HTML
-<div class="season__presentation>">
+<div class="season__presentation">
     <div class='tvshow__poster'><img src='/poster.php?posterId={$season->getPosterId()}' alt='Poster de la saison {$season->getSeasonNumber()}'></div>
-    <p class="tvshow__name"><a href='tvshow.php?tvShowId={$season->getTvShowId()}'>{$webPage->escapeString($tvShow->getName())}</a></p>
-    <p class="tvshow__name">{$webPage->escapeString($season->getName())}</p>
+        <div class="season__text">
+            <p class="tvshow__name"><a class="season__lien" href='tvshow.php?tvShowId={$season->getTvShowId()}'>{$webPage->escapeString($tvShow->getName())}</a></p>
+            <p class="tvshow__name">{$webPage->escapeString($season->getName())}</p>
+        </div>
 </div>
 HTML
 );
@@ -38,8 +40,8 @@ $webPage->appendContent("<div class='list'>");
 foreach(EpisodeCollection::findBySeasonId(intval($seasonId)) as $episode) {
     $webPage->appendContent(<<<HTML
         <div class="episode">
-            <p class='episode__number'>{$episode->getEpisodeNumber()}</p>
-            <p class='episode__name'>{$webPage->escapeString($episode->getName())}</p>
+                <p class='episode__number__titre'>{$episode->getEpisodeNumber()} - {$webPage->escapeString($episode->getName())}</p>
+
             <p class='episode__overview'>{$webPage->escapeString($episode->getOverview())}</p>
         </div>
         HTML);

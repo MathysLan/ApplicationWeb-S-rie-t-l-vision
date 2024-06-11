@@ -13,8 +13,10 @@ foreach(TvshowCollection::findAll() as $tvShow) {
         <a href="tvshow.php?tvShowId={$tvShow->getId()}">
         <div class="tvShow">
             <div class='tvshow__poster'><img src='/poster.php?posterId={$tvShow->getPosterId()}' alt='Poster de la série {$webPage->escapeString($tvShow->getName())}'></div>
-            <p class="tvshow__name">{$webPage->escapeString($tvShow->getName())}</p>
-            <p class="tvshow__overview">{$webPage->escapeString($tvShow->getOverview())}</p>
+            <div class='tvshow__info'>
+                <p class="index__tvshow__name">{$webPage->escapeString($tvShow->getName())}</p>
+                <p class="index__tvshow__overview">{$webPage->escapeString($tvShow->getOverview())}</p>
+            </div>
         </div>
         </a>
         HTML);
