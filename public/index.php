@@ -21,10 +21,15 @@ try {
 }
 
 $webPage = new AppWebPage("Séries TV");
-$webPage->appendMenu("<a href='admin/tvShow-form.php'>Ajouter</a>");
+$webPage->appendJs("function toggleMenu() {
+    var filter = document.querySelector('.filter');
+    filter.classList.toggle('active');
+}");
+$webPage->appendMenu(" <a href='admin/tvShow-form.php'>Ajouter</a>");
 
 if ($genre === null) {
-    $webPage->appendContent("<div class='filter'>");
+    $webPage->appendMenu("<button class='burger-menu' onclick='toggleMenu()'>Filtre</button>");
+    $webPage->appendContent(" <div class='filter'>");
     foreach(GenreCollection::findAll() as $genre) {
         $webPage->appendContent("<p><a href='index.php?genreId={$genre->getId()}'>{$genre->getName()}</a></p>");
     }
