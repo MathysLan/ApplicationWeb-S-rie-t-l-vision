@@ -18,73 +18,140 @@ class TvShow
 
     /**
      * Constructeur privé de la classe TvShow
+     *
+     * Empêche l'instanciation directe de la classe.
      */
     private function __construct()
     {
     }
 
-
+    /**
+     * Acceseur de l'ID de l'émission de télévision.
+     *
+     * @return int|null L'ID de l'émission de télévision ou null si non défini.
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * Mutateur de l'ID de l'émission de télévision.
+     *
+     * @param int|null $id L'ID de l'émission de télévision.
+     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     */
     private function setId(?int $id): TvShow
     {
         $this->id = $id;
         return $this;
     }
 
+    /**
+     * Accesseur du nom de l'émission de télévision.
+     *
+     * @return string Le nom de l'émission de télévision.
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * Mutateur du nom de l'émission de télévision.
+     *
+     * @param string $name Le nom de l'émission de télévision.
+     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     */
     public function setName(string $name): TvShow
     {
         $this->name = $name;
         return $this;
     }
 
+    /**
+     * Accesseur du nom original de l'émission de télévision.
+     *
+     * @return string Le nom original de l'émission de télévision.
+     */
     public function getOriginalName(): string
     {
         return $this->originalName;
     }
 
+    /**
+     * Mutateur du nom original de l'émission de télévision.
+     *
+     * @param string $originalName Le nom original de l'émission de télévision.
+     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     */
     public function setOriginalName(string $originalName): TvShow
     {
         $this->originalName = $originalName;
         return $this;
     }
 
+    /**
+     * Accesseur de la page d'accueil de l'émission de télévision.
+     *
+     * @return string La page d'accueil de l'émission de télévision.
+     */
     public function getHomepage(): string
     {
         return $this->homepage;
     }
 
+    /**
+     * Mutateur de la page d'accueil de l'émission de télévision.
+     *
+     * @param string $homepage La page d'accueil de l'émission de télévision.
+     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     */
     public function setHomepage(string $homepage): TvShow
     {
         $this->homepage = $homepage;
         return $this;
     }
 
+    /**
+     * Accesseur du résumé de l'émission de télévision.
+     *
+     * @return string Le résumé de l'émission de télévision.
+     */
     public function getOverview(): string
     {
         return $this->overview;
     }
 
+    /**
+     * Mutateur du résumé de l'émission de télévision.
+     *
+     * @param string $overview Le résumé de l'émission de télévision.
+     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     */
     public function setOverview(string $overview): TvShow
     {
         $this->overview = $overview;
         return $this;
     }
 
-    public function getPosterId(): ?int
+    /**
+     * Accesseur de l'ID de l'affiche de l'émission de télévision.
+     *
+     * @return int L'ID de l'affiche de l'émission de télévision.
+     */
+    public function getPosterId(): int
     {
         return $this->posterId;
     }
 
-    public function setPosterId(?int $posterId): TvShow
+    /**
+     * Mutateur de l'ID de l'affiche de l'émission de télévision.
+     *
+     * @param int $posterId L'ID de l'affiche de l'émission de télévision.
+     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     */
+    public function setPosterId(int $posterId): TvShow
     {
         $this->posterId = $posterId;
         return $this;
