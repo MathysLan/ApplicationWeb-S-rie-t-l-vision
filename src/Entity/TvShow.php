@@ -153,6 +153,21 @@ class TvShow
     }
 
     /**
+     * Enregistre une série dans la BD
+     *
+     * @return $this La série enregistrée
+     */
+    public function save(): TvShow
+    {
+        if ($this->getId() === null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+        return $this;
+    }
+
+    /**
      * Met à jour une série dans la BD
      *
      * @return $this La série mise à jour
