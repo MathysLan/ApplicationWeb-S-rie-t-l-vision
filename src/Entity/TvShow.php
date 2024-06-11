@@ -14,7 +14,11 @@ class TvShow
     private string $originalName;
     private string $homepage;
     private string $overview;
-    private int $posterId;
+    private ?int $posterId;
+
+    private function __construct()
+    {
+    }
 
     public function getId(): ?int
     {
@@ -106,6 +110,11 @@ class TvShow
         return $ligne;
     }
 
+    /**
+     * Méthode permettant de supprimer la série correspondant à l'instance de la BD.
+     *
+     * @return $this L'instance correspondant à la ligne de la BD venant d'être supprimée
+     */
     public function delete(): TvShow
     {
         $req = MyPDO::getInstance()->prepare(
@@ -117,6 +126,86 @@ class TvShow
         );
         $req->execute(['tvShowId' => $this->getId()]);
         $this->setId(null);
+        return $this;
+    }
+
+    /**
+     * Méthode permettant de créer une série.
+     *
+     * @param string $name Nom de la série
+     * @param string $originalName Nom original de la série
+     * @param string $homepage Lien vers un site de streaming permettant de voir la série
+     * @param string $overview Résumé de la série
+     * @param int|null $posterId Poster de la série
+     * @param int|null $id Identifiant de la série
+     * @return TvShow
+     */
+    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId, ?int $id = null): TvShow
+    {
+        $tvShow = new TvShow();
+        $tvShow->setId($id);
+        $tvShow->setName($name);
+        $tvShow->setOriginalName($originalName);
+        $tvShow->setHomepage($homepage);
+        $tvShow->setOverview($overview);
+        $tvShow->setPosterId($posterId);
+        return $tvShow;
+    }
+
+    /**
+     * Enregistre une série dans la BD
+     *
+     * @return $this La série enregistrée
+     */
+    public function save(): TvShow
+    {
+        if ($this->getId() === null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+        return $this;
+    }
+
+    /**
+     * Met à jour une série dans la BD
+     *
+     * @return $this La série mise à jour
+     */
+    protected function update(): TvShow
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            UPDATE tvshow
+            SET name = :name,
+                originalName = :originalName,
+                homepage = :homepage,
+                overview = :overview,
+                posterId = :posterId
+            WHERE id = :tvShowId
+        SQL
+        );
+        $req->execute(['name' => $this->getName(), 'tvShowId' => $this->getId(), 'originalName' => $this->getOriginalName(),
+            'homepage' => $this->getHomepage(), 'overview' => $this->getOverview(), $this->getPosterId()]);
+        return $this;
+    }
+
+    /**
+     * Insère une série dans la BD
+     *
+     * @return $this La série insérée
+     */
+    protected function insert(): TvShow
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            INSERT INTO tvshow(name, originalName, overview, homepage, posterId)
+            VALUES (:name, :originalName, :overview, :homepage, :posterId)
+        SQL
+        );
+        $req->execute(['name' => $this->getName(), 'originalName' => $this->getOriginalName(), 'overview' => $this->getOverview(),
+            'homepage' => $this->getHomepage(), 'posterId' => $this->getPosterId()]);
+        $this->setId((int) MyPDO::getInstance()->lastInsertId("tvshow"));
         return $this;
     }
 }
