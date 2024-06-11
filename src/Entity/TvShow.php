@@ -16,71 +16,142 @@ class TvShow
     private string $overview;
     private ?int $posterId;
 
+    /**
+     * Constructeur privé de la classe TvShow
+     *
+     * Empêche l'instanciation directe de la classe.
+     */
     private function __construct()
     {
     }
 
+    /**
+     * Acceseur de l'ID de la série.
+     *
+     * @return int|null L'ID de la série ou null si non défini.
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * Mutateur de l'ID de la série.
+     *
+     * @param int|null $id L'ID de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
+     */
     private function setId(?int $id): TvShow
     {
         $this->id = $id;
         return $this;
     }
 
+    /**
+     * Accesseur du nom de la série.
+     *
+     * @return string Le nom de la série.
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * Mutateur du nom de la série.
+     *
+     * @param string $name Le nom de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
+     */
     public function setName(string $name): TvShow
     {
         $this->name = $name;
         return $this;
     }
 
+    /**
+     * Accesseur du nom original de la série.
+     *
+     * @return string Le nom original de la série.
+     */
     public function getOriginalName(): string
     {
         return $this->originalName;
     }
 
+    /**
+     * Mutateur du nom original de la série.
+     *
+     * @param string $originalName Le nom original de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
+     */
     public function setOriginalName(string $originalName): TvShow
     {
         $this->originalName = $originalName;
         return $this;
     }
 
+    /**
+     * Accesseur de la page d'accueil de la série.
+     *
+     * @return string La page d'accueil de la série.
+     */
     public function getHomepage(): string
     {
         return $this->homepage;
     }
 
+    /**
+     * Mutateur de la page d'accueil de la série.
+     *
+     * @param string $homepage La page d'accueil de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
+     */
     public function setHomepage(string $homepage): TvShow
     {
         $this->homepage = $homepage;
         return $this;
     }
 
+    /**
+     * Accesseur du résumé de la série.
+     *
+     * @return string Le résumé de la série.
+     */
     public function getOverview(): string
     {
         return $this->overview;
     }
 
+    /**
+     * Mutateur du résumé de la série.
+     *
+     * @param string $overview Le résumé de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
+     */
     public function setOverview(string $overview): TvShow
     {
         $this->overview = $overview;
         return $this;
     }
 
-    public function getPosterId(): ?int
+    /**
+     * Accesseur de l'ID de l'affiche de la série.
+     *
+     * @return int L'ID de l'affiche de la série.
+     */
+    public function getPosterId(): int
     {
         return $this->posterId;
     }
 
-    public function setPosterId(?int $posterId): TvShow
+    /**
+     * Mutateur de l'ID de l'affiche de la série.
+     *
+     * @param int $posterId L'ID de l'affiche de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
+     */
+    public function setPosterId(int $posterId): TvShow
     {
         $this->posterId = $posterId;
         return $this;
@@ -205,7 +276,7 @@ class TvShow
         );
         $req->execute(['name' => $this->getName(), 'originalName' => $this->getOriginalName(), 'overview' => $this->getOverview(),
             'homepage' => $this->getHomepage(), 'posterId' => $this->getPosterId()]);
-        $this->setId((int) MyPDO::getInstance()->lastInsertId("tvshow"));
+        $this->setId((int)MyPDO::getInstance()->lastInsertId("tvshow"));
         return $this;
     }
 }
