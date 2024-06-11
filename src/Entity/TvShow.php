@@ -26,9 +26,9 @@ class TvShow
     }
 
     /**
-     * Acceseur de l'ID de l'émission de télévision.
+     * Acceseur de l'ID de la série.
      *
-     * @return int|null L'ID de l'émission de télévision ou null si non défini.
+     * @return int|null L'ID de la série ou null si non défini.
      */
     public function getId(): ?int
     {
@@ -36,10 +36,10 @@ class TvShow
     }
 
     /**
-     * Mutateur de l'ID de l'émission de télévision.
+     * Mutateur de l'ID de la série.
      *
-     * @param int|null $id L'ID de l'émission de télévision.
-     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     * @param int|null $id L'ID de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
     private function setId(?int $id): TvShow
     {
@@ -48,9 +48,9 @@ class TvShow
     }
 
     /**
-     * Accesseur du nom de l'émission de télévision.
+     * Accesseur du nom de la série.
      *
-     * @return string Le nom de l'émission de télévision.
+     * @return string Le nom de la série.
      */
     public function getName(): string
     {
@@ -58,10 +58,10 @@ class TvShow
     }
 
     /**
-     * Mutateur du nom de l'émission de télévision.
+     * Mutateur du nom de la série.
      *
-     * @param string $name Le nom de l'émission de télévision.
-     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     * @param string $name Le nom de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
     public function setName(string $name): TvShow
     {
@@ -70,9 +70,9 @@ class TvShow
     }
 
     /**
-     * Accesseur du nom original de l'émission de télévision.
+     * Accesseur du nom original de la série.
      *
-     * @return string Le nom original de l'émission de télévision.
+     * @return string Le nom original de la série.
      */
     public function getOriginalName(): string
     {
@@ -80,10 +80,10 @@ class TvShow
     }
 
     /**
-     * Mutateur du nom original de l'émission de télévision.
+     * Mutateur du nom original de la série.
      *
-     * @param string $originalName Le nom original de l'émission de télévision.
-     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     * @param string $originalName Le nom original de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
     public function setOriginalName(string $originalName): TvShow
     {
@@ -92,9 +92,9 @@ class TvShow
     }
 
     /**
-     * Accesseur de la page d'accueil de l'émission de télévision.
+     * Accesseur de la page d'accueil de la série.
      *
-     * @return string La page d'accueil de l'émission de télévision.
+     * @return string La page d'accueil de la série.
      */
     public function getHomepage(): string
     {
@@ -102,10 +102,10 @@ class TvShow
     }
 
     /**
-     * Mutateur de la page d'accueil de l'émission de télévision.
+     * Mutateur de la page d'accueil de la série.
      *
-     * @param string $homepage La page d'accueil de l'émission de télévision.
-     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     * @param string $homepage La page d'accueil de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
     public function setHomepage(string $homepage): TvShow
     {
@@ -114,9 +114,9 @@ class TvShow
     }
 
     /**
-     * Accesseur du résumé de l'émission de télévision.
+     * Accesseur du résumé de la série.
      *
-     * @return string Le résumé de l'émission de télévision.
+     * @return string Le résumé de la série.
      */
     public function getOverview(): string
     {
@@ -124,10 +124,10 @@ class TvShow
     }
 
     /**
-     * Mutateur du résumé de l'émission de télévision.
+     * Mutateur du résumé de la série.
      *
-     * @param string $overview Le résumé de l'émission de télévision.
-     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     * @param string $overview Le résumé de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
     public function setOverview(string $overview): TvShow
     {
@@ -136,9 +136,9 @@ class TvShow
     }
 
     /**
-     * Accesseur de l'ID de l'affiche de l'émission de télévision.
+     * Accesseur de l'ID de l'affiche de la série.
      *
-     * @return int L'ID de l'affiche de l'émission de télévision.
+     * @return int L'ID de l'affiche de la série.
      */
     public function getPosterId(): int
     {
@@ -146,10 +146,10 @@ class TvShow
     }
 
     /**
-     * Mutateur de l'ID de l'affiche de l'émission de télévision.
+     * Mutateur de l'ID de l'affiche de la série.
      *
-     * @param int $posterId L'ID de l'affiche de l'émission de télévision.
-     * @return TvShow L'instance de l'émission de télévision pour le chaînage de méthodes.
+     * @param int $posterId L'ID de l'affiche de la série.
+     * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
     public function setPosterId(int $posterId): TvShow
     {
