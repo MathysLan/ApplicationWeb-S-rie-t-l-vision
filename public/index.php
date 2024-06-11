@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Entity\Collection\GenreCollection;
 use Entity\Collection\TvshowCollection;
 use Html\AppWebPage;
 
@@ -11,8 +12,14 @@ $webPage->appendContent(<<<HTML
     <nav>
         <a href='admin/tvShow-form.php'>Ajouter</a>
     </nav>
-    <div class='list'>
+    <div class='filter'>
 HTML);
+
+foreach(GenreCollection::findAll() as $genre) {
+    $webPage->appendContent("<p>{$genre->getName()}</p>");
+}
+
+$webPage->appendContent("</div><div class='list'></div>");
 foreach(TvshowCollection::findAll() as $tvShow) {
     $webPage->appendContent(<<<HTML
         <a href="tvshow.php?tvShowId={$tvShow->getId()}">
