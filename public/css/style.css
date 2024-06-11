@@ -148,6 +148,7 @@ a {
 nav
 {
     margin: 0 auto 10px;
+    display: flex;
 }
 nav > a
 {
