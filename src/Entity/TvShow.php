@@ -140,7 +140,7 @@ class TvShow
      * @param int|null $id Identifiant de la série
      * @return TvShow
      */
-    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId, ?int $id = null): TvShow
+    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId = null, ?int $id = null): TvShow
     {
         $tvShow = new TvShow();
         $tvShow->setId($id);

@@ -7,7 +7,12 @@ use Html\AppWebPage;
 
 $webPage = new AppWebPage("Séries TV");
 
-$webPage->appendContent("<div class='list'>");
+$webPage->appendContent(<<<HTML
+    <nav>
+        <a href='admin/tvShow-form.php'>Ajouter</a>
+    </nav>
+    <div class='list'>
+HTML);
 foreach(TvshowCollection::findAll() as $tvShow) {
     $webPage->appendContent(<<<HTML
         <a href="tvshow.php?tvShowId={$tvShow->getId()}">
