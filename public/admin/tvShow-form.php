@@ -27,7 +27,7 @@ try {
         $posterId = (int)$_GET['posterId'];
     }
 
-    $tvShow->setPosterId($posterId);
+    $tvShow?->setPosterId($posterId);
     $tvShowForm = new TvShowForm($tvShow);
     echo $tvShowForm->getHtmlForm('tvShow-save.php');
 } catch (ParameterException) {
