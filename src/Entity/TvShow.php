@@ -139,9 +139,9 @@ class TvShow
     /**
      * Accesseur de l'ID de l'affiche de la série.
      *
-     * @return int L'ID de l'affiche de la série.
+     * @return int|null L'ID de l'affiche de la série.
      */
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
@@ -149,10 +149,10 @@ class TvShow
     /**
      * Mutateur de l'ID de l'affiche de la série.
      *
-     * @param int $posterId L'ID de l'affiche de la série.
+     * @param int|null $posterId L'ID de l'affiche de la série.
      * @return TvShow L'instance de la série pour le chaînage de méthodes.
      */
-    public function setPosterId(int $posterId): TvShow
+    public function setPosterId(?int $posterId): TvShow
     {
         $this->posterId = $posterId;
         return $this;
