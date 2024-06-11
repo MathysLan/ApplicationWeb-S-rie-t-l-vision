@@ -5,12 +5,12 @@ html, body {
     width: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #F0F0F0 ;
     overflow: hidden;
 }
 
 .header {
-    background-color: #333;
+    background-color: rgba(52, 1, 89, 0.87);
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -50,12 +50,13 @@ a, .tvShow {
 
 a {
     margin: 3px;
-    border: black 1px solid;
+    border: #D3D3D3  1px solid;
     border-radius: 8px;
 }
 
 .tvShow {
     background-color: white;
+    border: #D3D3D3 3px solid ;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -89,13 +90,13 @@ a {
 .tvshow__name, .index__tvshow__name, .tvshow__originalName {
     font-size: 1.5em;
     margin: 0 0 10px;
-    color: #333;
+    color: #333333 ;
     text-align: center;
 }
 
 .tvshow__overview, .index__tvshow__overview {
     font-size: 1em;
-    color: #666;
+    color: #666666 ;
     margin-left: 5px;
     overflow: hidden;
 }
@@ -104,7 +105,7 @@ a {
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #333;
+    background-color: rgba(9, 1, 1, 0.75);
     color: #fff;
 }
 
@@ -161,7 +162,7 @@ a {
 
 .menu > a, .burger-menu {
     display: initial;
-    background-image: linear-gradient(144deg, #a601fd, #5B42F3 50%, #00DDEB);
+    background-image: linear-gradient(144deg, #26232c, #5B42F3 50%, #00DDEB);
     border: transparent;
     border-radius: 8px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -175,7 +176,7 @@ a {
 
 }
 
-.menu > a:hover {
+.menu > a:hover,  .burger-menu:hover {
     background-image: linear-gradient(144deg, #ff4093, #f342f0 50%, #eb0000);
 
 }
