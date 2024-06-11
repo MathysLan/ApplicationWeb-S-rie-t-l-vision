@@ -47,15 +47,21 @@ class TvShowForm
         $homepage = $this->escapeString($this?->getTvShow()?->getHomepage());
         $overview = $this->escapeString($this?->getTvShow()?->getOverview());
         return <<<HTML
-        <form method="post" action="$action">
-            <input type="hidden" name="id" value="{$this?->getTvShow()?->getId()}">
-            <input type="hidden" name="posterUd" value="{$this?->getTvShow()?->getPosterId()}">  
-            <input type="text" name="name" value="$nom" required="required">
-            <input type="text" name="originalName" value="$originalName" required="required">
-            <input type="url" name="homepage" value="$homepage" required="required">
-            <input type="text" name="overview" value="$overview"  required="required">
-            <label for="name">Nom</label><button type="submit">Enregistrer</button>
-        </form>
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <link href="/css/styleForm.css" rel="stylesheet" type="text/css"><title>Formulaire</title>
+            </head>
+            <form method="post" action="$action">
+                <input type="hidden" name="id" value="{$this?->getTvShow()?->getId()}">
+                <input type="hidden" name="posterUd" value="{$this?->getTvShow()?->getPosterId()}">  
+                <input type="text" name="name" value="$nom" required="required" placeholder="Nom">
+                <input type="text" name="originalName" value="$originalName" required="required" placeholder="Nom Original"> 
+                <input type="url" name="homepage" value="$homepage" required="required" placeholder="Lien vers la série">
+                <textarea name="overview" required="required" placeholder="Résumé"  >$overview</textarea>
+                <button type="submit">Enregistrer</button>
+            </form>
+        </html>
         HTML;
     }
     /**
