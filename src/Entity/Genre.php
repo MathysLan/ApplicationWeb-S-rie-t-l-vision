@@ -12,7 +12,7 @@ class Genre
     /**
      * Accesseur de l'Id du genre
      *
-     * @return int
+     * @return int L'id du Genre
      */
     public function getId(): int
     {
@@ -22,7 +22,7 @@ class Genre
     /**
      * Accesseur du nom du genre
      *
-     * @return string
+     * @return string Le nom de genre
      */
     public function getName(): string
     {
