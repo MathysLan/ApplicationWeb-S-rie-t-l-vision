@@ -25,6 +25,7 @@ $webPage->appendContent(
     <<<HTML
 <nav>
     <a href="index.php">Accueil</a>
+    <a href='admin/tvShow-delete.php?tvShowId={$tvShow->getId()}'>Supprimer</a>
 </nav>
 <div class="tvShow__presentation">
     <div class='tvshow__poster'><img src='/poster.php?posterId={$tvShow->getPosterId()}' alt='Cover de {$webPage->escapeString($tvShow->getName())}'></div>
