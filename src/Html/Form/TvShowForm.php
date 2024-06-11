@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Html\Form;
+
 use Entity\TvShow;
 use Html\StringEscaper;
 
