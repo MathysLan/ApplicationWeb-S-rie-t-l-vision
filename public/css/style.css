@@ -45,6 +45,7 @@ a, .tvShow {
     text-decoration: none;
     flex: 1;
     width: 100%;
+    color: #333;
 }
 
 a {
@@ -86,7 +87,7 @@ a {
     overflow: auto;
 }
 
-.tvshow__name,  .index__tvshow__name{
+.tvshow__name,  .index__tvshow__name, .tvshow__originalName{
     font-size: 1.5em;
     margin: 0 0 10px;
     color: #333;
@@ -115,6 +116,7 @@ a {
     padding: 10px;
     border-radius: 5px;
     flex:1;
+    flex-direction: column;
 }
 
 .season:hover {
@@ -134,9 +136,6 @@ a {
     font-weight: bold;
 }
 
-p.tvshow__originalName {
-    text-align: center;
-}
 
 .episode {
     background-color: white;
@@ -176,20 +175,15 @@ p.tvshow__originalName {
     .list > a:nth-child(even) .tvShow {
         flex-direction: row;
     }
-    .tvshow__name {
-
-        text-align: left;
-    }
-
-    p.tvshow__originalName {
-        text-align: left;
-    }
-
     .tvShow__texte
     {
         flex:1;
     }
 
+    .season
+    {
+        flex-direction: row;
+    }
     .season__presentation
     {
         display: flex;
@@ -202,6 +196,14 @@ p.tvshow__originalName {
         flex: 1;
         align-content: end;
         flex-wrap: wrap;
+    }
+    .index__tvshow__overview, .index__tvshow__name
+    {
+        text-align: left;
+    }
+    .tvshow__name, .tvshow__originalName
+    {
+        text-align: right;
     }
 
 
