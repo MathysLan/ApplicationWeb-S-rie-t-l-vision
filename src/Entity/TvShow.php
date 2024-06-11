@@ -106,6 +106,11 @@ class TvShow
         return $ligne;
     }
 
+    /**
+     * Méthode permettant de supprimer l'artiste correspondant à l'instance de la BD.
+     *
+     * @return $this L'instance correspondant à la ligne de la BD venant d'être supprimée
+     */
     public function delete(): TvShow
     {
         $req = MyPDO::getInstance()->prepare(
