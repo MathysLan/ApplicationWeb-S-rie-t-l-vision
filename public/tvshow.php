@@ -23,6 +23,9 @@ $webPage = new AppWebPage();
 $webPage->setTitle(AppWebPage::escapeString("Séries TV : {$tvShow->getName()}"));
 $webPage->appendContent(
     <<<HTML
+<nav>
+    <a href="index.php">Accueil</a>
+</nav>
 <div class="tvShow__presentation>">
     <div class='tvshow__poster'><img src='/poster.php?posterId={$tvShow->getPosterId()}' alt='Cover de {$webPage->escapeString($tvShow->getName())}'></div>
     <p class="tvshow__name">{$webPage->escapeString($tvShow->getName())}</p>
