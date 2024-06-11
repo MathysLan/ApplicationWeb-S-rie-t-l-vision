@@ -26,6 +26,9 @@ $webPage = new AppWebPage();
 $webPage->setTitle(AppWebPage::escapeString("Séries TV : {$tvShow->getName()} - {$season->getName()}"));
 $webPage->appendContent(
     <<<HTML
+<nav>
+    <a href="index.php">Accueil</a>
+</nav>
 <div class="season__presentation>">
     <div class='tvshow__poster'><img src='/poster.php?posterId={$season->getPosterId()}' alt='Poster de la saison {$season->getSeasonNumber()}'></div>
     <p class="tvshow__name"><a href='tvshow.php?tvShowId={$season->getTvShowId()}'>{$webPage->escapeString($tvShow->getName())}</a></p>
