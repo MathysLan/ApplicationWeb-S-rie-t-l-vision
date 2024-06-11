@@ -14,9 +14,8 @@ try {
         if (!(is_numeric($_GET['tvShowId']))) {
             throw new ParameterException();
         }
-        $tvShowId = (int)$_GET['$tvShowId'];
+        $tvShowId = (int)$_GET['tvShowId'];
         $tvShow = TvShow::findById($tvShowId);
-
     }
 
     $tvShowForm = new TvShowForm($tvShow);
