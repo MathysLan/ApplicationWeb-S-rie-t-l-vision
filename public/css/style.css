@@ -64,8 +64,7 @@ a {
     flex-direction: column;
 }
 
-.tvshow__poster
-{
+.tvshow__poster {
     display: flex;
     margin: 2px;
 }
@@ -87,7 +86,7 @@ a {
     overflow: auto;
 }
 
-.tvshow__name,  .index__tvshow__name, .tvshow__originalName{
+.tvshow__name, .index__tvshow__name, .tvshow__originalName {
     font-size: 1.5em;
     margin: 0 0 10px;
     color: #333;
@@ -115,7 +114,7 @@ a {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
-    flex:1;
+    flex: 1;
     flex-direction: column;
 }
 
@@ -136,18 +135,17 @@ a {
     font-weight: bold;
 }
 
-.filter
-{
+.filter {
     border: 2px dimgray solid;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.filter > p
-{
+.filter > p {
     margin: 5px;
 }
+
 .episode {
     background-color: white;
     border-radius: 8px;
@@ -156,15 +154,14 @@ a {
     width: 100%;
 }
 
-nav
-{
+.menu {
     margin: 0 auto 10px;
     display: flex;
 }
-nav > a
-{
+
+.menu > a, .burger-menu {
     display: initial;
-    background-image: linear-gradient(144deg, #a601fd, #5B42F3 50%,#00DDEB);
+    background-image: linear-gradient(144deg, #a601fd, #5B42F3 50%, #00DDEB);
     border: transparent;
     border-radius: 8px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -178,16 +175,87 @@ nav > a
 
 }
 
-nav > a:hover
-{
+.menu > a:hover {
     background-image: linear-gradient(144deg, #ff4093, #f342f0 50%, #eb0000);
 
 }
 
 
+.filter {
+    display: none; /* Par défaut, le menu est caché */
+    background-color: #333;
+    padding: 10px;
+    margin: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
-.button-64:hover span {
-    background: none;
+
+.filter p a {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.filter p a:hover {
+    background-color: #575757;
+}
+
+/* Bouton du menu burger */
+.burger-menu {
+
+    top: 10px;
+    left: 10px;
+    position: absolute;
+}
+
+.burger-menu:focus {
+    outline: none;
+}
+
+/* Afficher le menu lorsqu'il est actif */
+.filter.active {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+}
+.filter p a:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.filter p a:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.filter p a:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
 }
 
 @media (min-width: 768px) {
@@ -196,19 +264,17 @@ nav > a:hover
         min-width: 196px;
     }
 }
-.season__lien
-{
-    border:  transparent;
+
+.season__lien {
+    border: transparent;
 }
 
 
-
 @media screen and (min-width: 600px) {
-    .tvShow__presentation{
+    .tvShow__presentation {
         display: flex;
 
     }
-
 
 
     a, .tvShow {
@@ -227,34 +293,33 @@ nav > a:hover
     .list > a:nth-child(even) .tvShow {
         flex-direction: row;
     }
-    .tvShow__texte
-    {
-        flex:1;
+
+    .tvShow__texte {
+        flex: 1;
     }
 
-    .season
-    {
+    .season {
         flex-direction: row;
     }
-    .season__presentation
-    {
+
+    .season__presentation {
         display: flex;
         margin: 5px;
     }
-    .season__text
-    {
+
+    .season__text {
         display: flex;
         flex-direction: column;
         flex: 1;
         align-content: end;
         flex-wrap: wrap;
     }
-    .index__tvshow__overview, .index__tvshow__name
-    {
+
+    .index__tvshow__overview, .index__tvshow__name {
         text-align: left;
     }
-    .tvshow__name, .tvshow__originalName
-    {
+
+    .tvshow__name, .tvshow__originalName {
         text-align: right;
     }
 
