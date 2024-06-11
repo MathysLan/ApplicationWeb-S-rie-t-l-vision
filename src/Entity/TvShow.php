@@ -16,9 +16,13 @@ class TvShow
     private string $overview;
     private ?int $posterId;
 
+    /**
+     * Constructeur privé de la classe TvShow
+     */
     private function __construct()
     {
     }
+
 
     public function getId(): ?int
     {
@@ -205,7 +209,7 @@ class TvShow
         );
         $req->execute(['name' => $this->getName(), 'originalName' => $this->getOriginalName(), 'overview' => $this->getOverview(),
             'homepage' => $this->getHomepage(), 'posterId' => $this->getPosterId()]);
-        $this->setId((int) MyPDO::getInstance()->lastInsertId("tvshow"));
+        $this->setId((int)MyPDO::getInstance()->lastInsertId("tvshow"));
         return $this;
     }
 }
