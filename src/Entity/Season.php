@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\EpisodeCollection;
 use PDO;
 
 class Season
@@ -142,5 +143,15 @@ class Season
             throw new Exception\EntityNotFoundException();
         }
         return $ligne;
+    }
+
+    /**
+     * Liste les épisodes de la saison
+     *
+     * @return Episode[] Liste des épisodes de la saison
+     */
+    public function getEpisodes(): array
+    {
+        return EpisodeCollection::findBySeasonId($this->getId());
     }
 }
