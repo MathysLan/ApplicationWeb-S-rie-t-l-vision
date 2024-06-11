@@ -111,7 +111,7 @@ class TvShow
     }
 
     /**
-     * Méthode permettant de supprimer l'artiste correspondant à l'instance de la BD.
+     * Méthode permettant de supprimer la série correspondant à l'instance de la BD.
      *
      * @return $this L'instance correspondant à la ligne de la BD venant d'être supprimée
      */
@@ -129,6 +129,17 @@ class TvShow
         return $this;
     }
 
+    /**
+     * Méthode permettant de créer une série.
+     *
+     * @param string $name Nom de la série
+     * @param string $originalName Nom original de la série
+     * @param string $homepage Lien vers un site de streaming permettant de voir la série
+     * @param string $overview Résumé de la série
+     * @param int|null $posterId Poster de la série
+     * @param int|null $id Identifiant de la série
+     * @return TvShow
+     */
     public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId, ?int $id = null): TvShow
     {
         $tvShow = new TvShow();
