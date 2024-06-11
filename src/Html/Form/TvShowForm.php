@@ -43,12 +43,13 @@ class TvShowForm
     public function getHtmlForm(string $action): string
     {
         $nom = $this->escapeString($this?->getTvShow()?->getName());
-        $originalName = $this->escapeString($this?->getTvShow()->getOriginalName());
-        $homepage = $this->escapeString($this?->getTvShow()->getHomepage());
-        $overview = $this->escapeString($this?->getTvShow()->getOverview());
+        $originalName = $this->escapeString($this?->getTvShow()?->getOriginalName());
+        $homepage = $this->escapeString($this?->getTvShow()?->getHomepage());
+        $overview = $this->escapeString($this?->getTvShow()?->getOverview());
         return <<<HTML
         <form method="post" action="$action">
-            <input type="hidden" name="id" value="{$this?->getTvShow()?->getId()}"> 
+            <input type="hidden" name="id" value="{$this?->getTvShow()?->getId()}">
+            <input type="hidden" name="posterUd" value="{$this?->getTvShow()?->getPosterId()}">  
             <input type="text" name="name" value="$nom" required="required">
             <input type="text" name="originalName" value="$originalName" required="required">
             <input type="url" name="homepage" value="$homepage" required="required">
@@ -65,8 +66,13 @@ class TvShowForm
     public function setEntityFromQueryString(): void
     {
         $id = null;
+        $posterId = null;
         if (isset($_POST['id']) && ctype_digit($_POST['id'])) {
             $id = $this->escapeString($_POST['id']);
+            $id = (int)$this->stripTagsAndTrim($id);
+        }
+        if (isset($_POST['posterId']) && ctype_digit($_POST['posterId'])) {
+            $id = $this->escapeString($_POST['posterId']);
             $id = (int)$this->stripTagsAndTrim($id);
         }
         if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['originalName']) || empty($_POST['originalName'])
@@ -77,7 +83,7 @@ class TvShowForm
                                  $this->stripTagsAndTrim($this->escapeString($_POST['originalName'])),
                                  $this->stripTagsAndTrim($this->escapeString($_POST['homepage'])),
                                  $this->stripTagsAndTrim($this->escapeString($_POST['overview'])),
-                                 $id);
+                                 $id, $posterId);
         $this->tvShow = $tvShow;
     }
 }
