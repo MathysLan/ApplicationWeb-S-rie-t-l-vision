@@ -40,13 +40,13 @@ class TvshowCollection
             <<<SQL
             SELECT id, name, originalName, homepage, overview, posterId
             FROM tvshow
-            WHERE id = (SELECT tvShowId
-                        FROM tvshow_genre
-                        WHERE genreId = :genreId)
+            WHERE id IN (SELECT tvShowId
+                         FROM tvshow_genre
+                         WHERE genreId = :genreId)
             ORDER BY name
         SQL
         );
-        $req->execute(['$genreId' => $genreId]);
+        $req->execute(['genreId' => $genreId]);
         return $req->fetchAll(PDO::FETCH_CLASS, "Entity\TvShow");
     }
 }
