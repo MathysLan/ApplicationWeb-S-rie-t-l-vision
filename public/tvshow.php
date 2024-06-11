@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Entity\Collection\SeasonCollection;
 use Entity\TvShow;
 use Html\AppWebPage;
 
@@ -40,7 +39,7 @@ HTML
 );
 
 $webPage->appendContent("<div class='list'>");
-foreach(SeasonCollection::findByTvShowId(intval($tvShowId)) as $season) {
+foreach($tvShow->getSeasons() as $season) {
     $webPage->appendContent(<<<HTML
         <a href="season.php?seasonId={$season->getId()}">
         <div class="season">
