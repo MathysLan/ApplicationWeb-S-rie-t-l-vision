@@ -145,10 +145,44 @@ a {
     width: 100%;
 }
 
+nav
+{
+    margin: auto;
+}
+nav > a
+{
+    display: initial;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    padding: 3px;
+
+}
+
+nav > a:hover
+{
+    background-image: linear-gradient(144deg, #ff4093, #f342f0 50%, #eb0000);
+
+}
 
 .season__lien
 {
     border:  transparent;
+}
+
+
+@media (min-width: 768px) {
+    .button-64 {
+        font-size: 24px;
+        min-width: 196px;
+    }
 }
 @media screen and (min-width: 500px) {
     .tvShow__presentation{
