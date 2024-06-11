@@ -25,6 +25,7 @@ $webPage->appendContent(
     <<<HTML
 <nav>
     <a href="index.php">Accueil</a>
+    <a href='admin/tvShow-form.php?tvShowId={$tvShow->getId()}'>Modifier</a>
     <a href='admin/tvShow-delete.php?tvShowId={$tvShow->getId()}'>Supprimer</a>
 </nav>
 <div class="tvShow__presentation">
