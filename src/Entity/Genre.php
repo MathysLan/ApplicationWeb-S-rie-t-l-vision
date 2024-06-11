@@ -35,8 +35,8 @@ class Genre
     /**
      * Récupère l'instance du genre à partir de son identifiant
      *
-     * @param int $id L'identifiant de la série
-     * @return Genre L'instance de TvShow correspondant à la série
+     * @param int $id L'identifiant du genre
+     * @return Genre L'instance de Genre correspondant au genre
      * @throws Exception\EntityNotFoundException
      */
     public static function findById(int $id): Genre
