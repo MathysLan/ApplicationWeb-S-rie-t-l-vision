@@ -186,7 +186,7 @@ class TvShow
         SQL
         );
         $req->execute(['name' => $this->getName(), 'tvShowId' => $this->getId(), 'originalName' => $this->getOriginalName(),
-            'homepage' => $this->getHomepage(), 'overview' => $this->getOverview(), $this->getPosterId()]);
+            'homepage' => $this->getHomepage(), 'overview' => $this->getOverview(), 'posterId' => $this->getPosterId()]);
         return $this;
     }
 
