@@ -51,7 +51,6 @@ a {
     margin: 3px;
     border: black 1px solid;
     border-radius: 8px;
-
 }
 
 .tvShow {
@@ -87,14 +86,14 @@ a {
     overflow: auto;
 }
 
-.tvshow__name {
+.tvshow__name,  .index__tvshow__name{
     font-size: 1.5em;
     margin: 0 0 10px;
     color: #333;
     text-align: center;
 }
 
-.tvshow__overview {
+.tvshow__overview, .index__tvshow__overview {
     font-size: 1em;
     color: #666;
     margin-left: 5px;
