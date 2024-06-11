@@ -200,7 +200,7 @@ class TvShow
         $req = MyPDO::getInstance()->prepare(
             <<<SQL
             INSERT INTO tvshow(name, originalName, overview, homepage, posterId)
-            VALUES ()
+            VALUES (:name, :originalName, :overview, :homepage, :posterId)
         SQL
         );
         $req->execute(['name' => $this->getName(), 'originalName' => $this->getOriginalName(), 'overview' => $this->getOverview(),
