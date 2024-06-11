@@ -51,7 +51,7 @@ class TvShowForm
             <input type="hidden" name="id" value="{$this?->getTvShow()?->getId()}"> 
             <input type="text" name="name" value="$nom" required="required">
             <input type="text" name="originalName" value="$originalName" required="required">
-            <input type="url" name="homepage" value="$homepage" >
+            <input type="url" name="homepage" value="$homepage" required="required">
             <input type="text" name="overview" value="$overview"  required="required">
             <label for="name">Nom</label><button type="submit">Enregistrer</button>
         </form>
@@ -65,16 +65,19 @@ class TvShowForm
     public function setEntityFromQueryString(): void
     {
         $id = null;
-        if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+        if (isset($_POST['id']) && ctype_digit($_POST['id'])) {
             $id = $this->escapeString($_POST['id']);
             $id = (int)$this->stripTagsAndTrim($id);
         }
-        if (!isset($_POST['name']) || empty($_POST['name'])) {
+        if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['originalName']) || empty($_POST['originalName'])
+            || !isset($_POST['homepage']) || empty($_POST['homepage']) || !isset($_POST['overview']) || empty($_POST['overview'])) {
             throw new ParameterException();
         }
-        $name = $this->stripTagsAndTrim($this->escapeString($_POST['name']));
-        $tvShow = TvShow::create($name, );
+        $tvShow = TvShow::create($this->stripTagsAndTrim($this->escapeString($_POST['name'])),
+                                 $this->stripTagsAndTrim($this->escapeString($_POST['originalName'])),
+                                 $this->stripTagsAndTrim($this->escapeString($_POST['homepage'])),
+                                 $this->stripTagsAndTrim($this->escapeString($_POST['overview'])),
+                                 $id);
         $this->tvShow = $tvShow;
     }
-
 }
