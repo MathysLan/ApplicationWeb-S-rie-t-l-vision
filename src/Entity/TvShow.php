@@ -105,4 +105,18 @@ class TvShow
         }
         return $ligne;
     }
+
+    public function delete(): TvShow
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            DELETE
+            FROM tvshow
+            WHERE id = :tvShowId
+        SQL
+        );
+        $req->execute(['tvShowId' => $this->getId()]);
+        $this->setId(null);
+        return $this;
+    }
 }
