@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Entity\Collection\EpisodeCollection;
 use Entity\Season;
 use Entity\TvShow;
 use Html\AppWebPage;
@@ -40,7 +39,7 @@ HTML
 );
 
 $webPage->appendContent("<div class='list'>");
-foreach(EpisodeCollection::findBySeasonId(intval($seasonId)) as $episode) {
+foreach($season->getEpisodes() as $episode) {
     $webPage->appendContent(<<<HTML
         <div class="episode">
                 <p class='episode__number__titre'>{$episode->getEpisodeNumber()} - {$webPage->escapeString($episode->getName())}</p>
