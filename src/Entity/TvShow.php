@@ -75,12 +75,12 @@ class TvShow
         return $this;
     }
 
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
 
-    public function setPosterId(int $posterId): TvShow
+    public function setPosterId(?int $posterId): TvShow
     {
         $this->posterId = $posterId;
         return $this;
