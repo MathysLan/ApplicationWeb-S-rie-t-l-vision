@@ -151,4 +151,23 @@ class TvShow
         $tvShow->setPosterId($posterId);
         return $tvShow;
     }
+
+    /**
+     * Insère une série dans la BD
+     *
+     * @return $this La série insérée
+     */
+    protected function insert(): TvShow
+    {
+        $req = MyPDO::getInstance()->prepare(
+            <<<SQL
+            INSERT INTO tvshow(name, originalName, overview, homepage, posterId)
+            VALUES ()
+        SQL
+        );
+        $req->execute(['name' => $this->getName(), 'originalName' => $this->getOriginalName(), 'overview' => $this->getOverview(),
+            'homepage' => $this->getHomepage(), 'posterId' => $this->getPosterId()]);
+        $this->setId((int) MyPDO::getInstance()->lastInsertId("tvshow"));
+        return $this;
+    }
 }
