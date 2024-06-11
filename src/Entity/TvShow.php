@@ -16,6 +16,10 @@ class TvShow
     private string $overview;
     private ?int $posterId;
 
+    private function __construct()
+    {
+    }
+
     public function getId(): ?int
     {
         return $this->id;
