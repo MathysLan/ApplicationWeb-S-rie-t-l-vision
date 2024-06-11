@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Html\Form;
 
+use Entity\Exception\ParameterException;
 use Entity\TvShow;
 use Html\StringEscaper;
 
@@ -55,6 +56,25 @@ class TvShowForm
             <label for="name">Nom</label><button type="submit">Enregistrer</button>
         </form>
         HTML;
+    }
+    /**
+     * Méthode permettant de créer un tvShow à partir des informations dans les query strings
+     * @return void
+     * @throws ParameterException
+     */
+    public function setEntityFromQueryString(): void
+    {
+        $id = null;
+        if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+            $id = $this->escapeString($_POST['id']);
+            $id = (int)$this->stripTagsAndTrim($id);
+        }
+        if (!isset($_POST['name']) || empty($_POST['name'])) {
+            throw new ParameterException();
+        }
+        $name = $this->stripTagsAndTrim($this->escapeString($_POST['name']));
+        $tvShow = TvShow::create($name, );
+        $this->tvShow = $tvShow;
     }
 
 }
