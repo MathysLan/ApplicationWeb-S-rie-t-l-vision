@@ -136,7 +136,18 @@ a {
     font-weight: bold;
 }
 
+.filter
+{
+    border: 2px dimgray solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
+.filter > p
+{
+    margin: 5px;
+}
 .episode {
     background-color: white;
     border-radius: 8px;
