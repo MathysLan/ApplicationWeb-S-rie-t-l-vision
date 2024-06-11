@@ -156,6 +156,10 @@ a {
 
     }
 
+    .tvshow__poster img {
+        max-height: none;
+    }
+
     a, .tvShow {
         flex-direction: row;
     }
