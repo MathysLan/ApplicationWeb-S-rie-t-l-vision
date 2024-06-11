@@ -8,13 +8,12 @@ use Entity\Exception\EntityNotFoundException;
 use Entity\Genre;
 use Html\AppWebPage;
 
+$genre = null;
+$tvShowCollection = TvshowCollection::findAll();
 try {
     if (isset($_GET['genreId']) && ctype_digit($_GET['genreId'])) {
         $genre = Genre::findById((int) $_GET['genreId']);
         $tvShowCollection = $genre->getTvShow();
-    } else {
-        $genre = null;
-        $tvShowCollection = TvshowCollection::findAll();
     }
 } catch(EntityNotFoundException) {
     http_response_code(404);
@@ -22,31 +21,20 @@ try {
 }
 
 $webPage = new AppWebPage("Séries TV");
+$webPage->appendMenu("<a href='admin/tvShow-form.php'>Ajouter</a>");
 
-// A COMPACTER
 if ($genre === null) {
-    $webPage->appendContent(<<<HTML
-    <nav>
-        <a href='admin/tvShow-form.php'>Ajouter</a>
-    </nav>
-    <div class='filter'>
-HTML);
+    $webPage->appendContent("<div class='filter'>");
     foreach(GenreCollection::findAll() as $genre) {
         $webPage->appendContent("<p><a href='index.php?genreId={$genre->getId()}'>{$genre->getName()}</a></p>");
     }
-
+    $webPage->appendContent("</div>");
 } else {
-    $webPage->appendContent(<<<HTML
-    <nav>
-        <a href='/'>Réinitialiser</a>
-        <a href='admin/tvShow-form.php'>Ajouter</a>
-    </nav>
-    <div class='filter'>
-HTML);
+    $webPage->appendMenu("<a href='/'>Réinitialiser</a>");
     $webPage->setTitle("Séries TV - Genre {$genre->getName()}");
 }
 
-$webPage->appendContent("</div><div class='list'>");
+$webPage->appendContent("<div class='list'>");
 foreach($tvShowCollection as $tvShow) {
     $webPage->appendContent(<<<HTML
         <a href="tvshow.php?tvShowId={$tvShow->getId()}">

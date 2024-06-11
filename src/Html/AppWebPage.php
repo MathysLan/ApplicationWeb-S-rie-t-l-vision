@@ -8,10 +8,34 @@ use Html\WebPage;
 
 class AppWebPage extends WebPage
 {
+    private string $menu;
+
     public function __construct(string $title = '')
     {
         parent::__construct($title);
+        $this->menu = '';
         $this->appendCssUrl('/css/style.css');
+    }
+
+    /**
+     * Accesseur sur le menu de la page Web
+     *
+     * @return string Contenu du menu de la page Web
+     */
+    public function getMenu(): string
+    {
+        return $this->menu;
+    }
+
+    /**
+     * Mutateur sur le menu de la page Web
+     *
+     * @param string $menu Contenu du menu de la page Web
+     * @return void
+     */
+    public function appendMenu(string $menu): void
+    {
+        $this->menu .= $menu;
     }
 
     public function toHtml(): string
@@ -26,7 +50,8 @@ class AppWebPage extends WebPage
                         {$this->getHead()}
                     </head>  
                     <body>
-                    <div class="header"><h1>{$this->getTitle()}</h1></div>         
+                    <div class="header"><h1>{$this->getTitle()}</h1></div>      
+                    <div class="menu">{$this->getMenu()}</div>   
                     <div class="content">
                         {$this->getBody()}
                      </div>
