@@ -31,8 +31,8 @@ class TvshowCollection
     /**
      * Méthode static renvoyant toutes les séries par rapport à un Id de genre avec leur id, leur nom, leur nom original, le lien vers le site où l'on peut regarder la série,
      *
-     * @param int $genreId Le genre de l'Id ou l'on veut les séries associées.
-     * @return TvShow[]
+     * @param int $genreId Le genre de l'Id où l'on veut les séries associées.
+     * @return TvShow[] Ensemble des séries par genre
      */
     public static function findByGenreId(int $genreId): array
     {
