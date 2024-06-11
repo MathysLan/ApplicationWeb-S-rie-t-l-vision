@@ -14,7 +14,7 @@ class TvShow
     private string $originalName;
     private string $homepage;
     private string $overview;
-    private int $posterId;
+    private ?int $posterId;
 
     public function getId(): ?int
     {
@@ -123,5 +123,17 @@ class TvShow
         $req->execute(['tvShowId' => $this->getId()]);
         $this->setId(null);
         return $this;
+    }
+
+    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId, ?int $id = null): TvShow
+    {
+        $tvShow = new TvShow();
+        $tvShow->setId($id);
+        $tvShow->setName($name);
+        $tvShow->setOriginalName($originalName);
+        $tvShow->setHomepage($homepage);
+        $tvShow->setOverview($overview);
+        $tvShow->setPosterId($posterId);
+        return $tvShow;
     }
 }
