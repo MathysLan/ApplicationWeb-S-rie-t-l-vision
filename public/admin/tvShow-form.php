@@ -19,16 +19,6 @@ try {
         $tvShow = TvShow::findById($tvShowId);
     }
 
-    if (!isset($_GET['posterId'])) {
-        $posterId = null;
-    } else {
-        if (!(ctype_digit($_GET['posterId']))) {
-            throw new ParameterException();
-        }
-        $posterId = (int)$_GET['posterId'];
-    }
-
-    $tvShow?->setPosterId($posterId);
     $tvShowForm = new TvShowForm($tvShow);
     echo $tvShowForm->getHtmlForm('tvShow-save.php');
 } catch (ParameterException) {
