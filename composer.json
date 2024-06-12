@@ -34,7 +34,12 @@
         "start:windows": "bin/run-server.bat",
         "start": "@start:linux",
         "test:cs": "vendor/bin/php-cs-fixer fix --dry-run",
-        "fix:cs": "vendor/bin/php-cs-fixer fix"
+        "fix:cs": "vendor/bin/php-cs-fixer fix",
+        "test:codecept": ["php vendor/bin/codecept clean",
+                          "php vendor/bin/codecept run"],
+        "test:crud": "php vendor/bin/codecept run Crud",
+        "test": ["@test:cs",
+                "@test:codecept"]
     },
     "config": {
         "process-timeout": 0
