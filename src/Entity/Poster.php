@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
 
 class Poster
 {
-    private int $id;
-    private string $jpeg;
+    private int $id; // Propriété privée pour stocker l'identifiant du poster.
+    private string $jpeg; // Propriété privée pour stocker le contenu JPEG du poster.
 
     /**
-     * Accesseur de l'id de l'instance Poster. Renvoie un entier
+     * Accesseur de l'id de l'instance Poster. Renvoie un entier.
      *
-     * @return int
+     * @return int L'identifiant du poster.
      */
     public function getId(): int
     {
@@ -22,9 +23,9 @@ class Poster
     }
 
     /**
-     * Accesseur renvoyant une chaine de caractère, c'est le jpeg de l'instance Poster
+     * Accesseur renvoyant une chaîne de caractères, c'est le JPEG de l'instance Poster.
      *
-     * @return string
+     * @return string Le contenu JPEG du poster.
      */
     public function getJpeg(): string
     {
@@ -34,22 +35,22 @@ class Poster
     /**
      * Méthode statique renvoyant une instance de la classe Poster. Elle prend en paramètre un entier.
      *
-     * @param int $id
-     * @return Poster
-     * @throws EntityNotFoundException
+     * @param int $id L'identifiant du poster à rechercher.
+     * @return Poster L'instance de Poster correspondant à l'identifiant.
+     * @throws EntityNotFoundException Si le poster n'est pas trouvé dans la base de données.
      */
-    public static function findById(int $id): Poster #throws EntityNotFoundException
+    public static function findById(int $id): Poster
     {
         $requete = <<<SQL
-        SELECT id,jpeg
+        SELECT id, jpeg
         FROM poster
         WHERE id = ?
-        SQL;
-        $stmt = MyPDO::getInstance()->prepare($requete);
-        $stmt->execute([$id]);
-        if (!($ligne = $stmt->fetchObject("Entity\Poster"))) {
-            throw new Exception\EntityNotFoundException();
+        SQL; // Définition de la requête SQL pour récupérer le poster par son identifiant.
+        $stmt = MyPDO::getInstance()->prepare($requete); // Préparation de la requête SQL.
+        $stmt->execute([$id]); // Exécution de la requête SQL avec l'identifiant du poster.
+        if (!($ligne = $stmt->fetchObject("Entity\Poster"))) { // Vérification si le poster est trouvé.
+            throw new EntityNotFoundException(); // Si le poster n'est pas trouvé, lancer une exception EntityNotFoundException.
         }
-        return $ligne;
+        return $ligne; // Retourner l'instance de Poster trouvée.
     }
 }
