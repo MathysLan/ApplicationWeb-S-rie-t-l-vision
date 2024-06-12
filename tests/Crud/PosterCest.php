@@ -12,9 +12,9 @@ class PosterCest
 {
     public function findById(CrudTester $I)
     {
-        $poster = Poster::findById(237);
-        $I->assertSame(237, $poster->getId());
-        $I->assertSame(file_get_contents(codecept_data_dir() . '/cover/cover411.jpeg'), $poster->getJpeg());
+        $poster = Poster::findById(231);
+        $I->assertSame(231, $poster->getId());
+        $I->assertSame(file_get_contents(codecept_data_dir() . '/poster/poster231.jpeg'), $poster->getJpeg());
     }
 
     public function findByIdThrowsExceptionIfCoverDoesNotExist(CrudTester $I)
