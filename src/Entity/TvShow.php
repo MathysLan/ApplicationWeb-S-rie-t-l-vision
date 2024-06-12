@@ -27,7 +27,7 @@ class TvShow
     }
 
     /**
-     * Acceseur de l'ID de la série.
+     * Accesseur de l'ID de la série.
      *
      * @return int|null L'ID de la série ou null si non défini.
      */
