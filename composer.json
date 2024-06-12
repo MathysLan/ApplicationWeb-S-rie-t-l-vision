@@ -27,7 +27,9 @@
         "codeception/codeception": "^4.1",
         "codeception/module-phpbrowser": "^1",
         "codeception/module-asserts": "^1",
-        "codeception/module-db": "^1"
+        "codeception/module-db": "^1",
+        "ext-dom": "*",
+        "ext-libxml": "*"
     },
     "scripts": {
         "start:linux": "bin/run-server.sh",
@@ -38,8 +40,11 @@
         "test:codecept": ["php vendor/bin/codecept clean",
                           "php vendor/bin/codecept run"],
         "test:crud": "php vendor/bin/codecept run Crud",
+        "test:form": ["php vendor/bin/codecept clean",
+            "php vendor/bin/codecept run Form"],
         "test": ["@test:cs",
-                "@test:codecept"]
+                "@test:codecept",
+                "@test:form"]
     },
     "config": {
         "process-timeout": 0
