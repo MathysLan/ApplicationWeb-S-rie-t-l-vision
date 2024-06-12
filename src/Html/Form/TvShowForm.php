@@ -85,11 +85,14 @@ class TvShowForm
             || !isset($_POST['homepage']) || empty($_POST['homepage']) || !isset($_POST['overview']) || empty($_POST['overview'])) {
             throw new ParameterException();
         }
-        $tvShow = TvShow::create($this->stripTagsAndTrim($this->escapeString($_POST['name'])),
-                                 $this->stripTagsAndTrim($this->escapeString($_POST['originalName'])),
-                                 $this->stripTagsAndTrim($this->escapeString($_POST['homepage'])),
-                                 $this->stripTagsAndTrim($this->escapeString($_POST['overview'])),
-                                 $id, $posterId);
+        $tvShow = TvShow::create(
+            $this->stripTagsAndTrim($this->escapeString($_POST['name'])),
+            $this->stripTagsAndTrim($this->escapeString($_POST['originalName'])),
+            $this->stripTagsAndTrim($this->escapeString($_POST['homepage'])),
+            $this->stripTagsAndTrim($this->escapeString($_POST['overview'])),
+            $id,
+            $posterId
+        );
         $this->tvShow = $tvShow;
     }
 }
