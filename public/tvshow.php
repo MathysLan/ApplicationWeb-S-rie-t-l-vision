@@ -34,7 +34,8 @@ $webPage->appendContent(
 HTML
 ); // Ajouter le contenu HTML pour la présentation de la série TV, incluant le poster, le nom et l'aperçu de la série.
 
-$webPage->appendMenu(<<<HTML
+$webPage->appendMenu(
+    <<<HTML
     <a href="index.php">Accueil</a>
     <a href='admin/tvShow-form.php?tvShowId={$tvShow->getId()}&posterId={$tvShow->getPosterId()}'>Modifier</a>
     <a href='admin/tvShow-delete.php?tvShowId={$tvShow->getId()}&posterId={$tvShow->getPosterId()}'>Supprimer</a>
