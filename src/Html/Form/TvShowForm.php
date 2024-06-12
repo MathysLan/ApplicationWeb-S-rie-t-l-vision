@@ -74,10 +74,10 @@ class TvShowForm
         $id = null;
         $posterId = null;
         if (isset($_POST['id']) && ctype_digit($_POST['id'])) {
-            $id = (int)$this->stripTagsAndTrim($id);
+            $id = (int)$this->stripTagsAndTrim($_POST['id']);
         }
         if (isset($_POST['posterId']) && ctype_digit($_POST['posterId'])) {
-            $posterId = (int)$this->stripTagsAndTrim($posterId);
+            $posterId = (int)$this->stripTagsAndTrim($_POST['posterId']);
         }
         if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['originalName']) || empty($_POST['originalName'])
             || !isset($_POST['homepage']) || empty($_POST['homepage']) || !isset($_POST['overview']) || empty($_POST['overview'])) {
