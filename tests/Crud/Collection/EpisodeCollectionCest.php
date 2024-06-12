@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Crud\Collection;
@@ -12,7 +13,7 @@ class EpisodeCollectionCest
     public function findBySeasonId(CrudTester $I)
     {
         $expectedTvShows = [
-            ['id' => 5750, 'seasonId' => 334, 'name' => 'Épisode 1','overview' => '','episodeNumber' =>1],
+            ['id' => 5750, 'seasonId' => 334, 'name' => 'Épisode 1','overview' => '','episodeNumber' => 1],
             ['id' => 5751,'seasonId' => 334,'name' => 'Épisode 2','overview' => '','episodeNumber' => 2],
             ['id' => 5752,'seasonId' => 334,'name' => 'Épisode 3','overview' => '','episodeNumber' => 3]
         ];
