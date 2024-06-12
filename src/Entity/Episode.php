@@ -6,16 +6,16 @@ namespace Entity;
 
 class Episode
 {
-    private int $id;
-    private int $seasonId;
-    private string $name;
-    private string $overview;
-    private int $episodeNumber;
+    private int $id; // Propriété privée pour stocker l'identifiant de l'épisode.
+    private int $seasonId; // Propriété privée pour stocker l'identifiant de la saison à laquelle appartient l'épisode.
+    private string $name; // Propriété privée pour stocker le nom de l'épisode.
+    private string $overview; // Propriété privée pour stocker le résumé de l'épisode.
+    private int $episodeNumber; // Propriété privée pour stocker le numéro de l'épisode dans la saison.
 
     /**
      * Accesseur de l'Id de l'épisode de la classe Episode. Renvoie un entier.
      *
-     * @return int Renvoie l'id
+     * @return int Renvoie l'id de l'épisode.
      */
     public function getId(): int
     {
@@ -25,7 +25,7 @@ class Episode
     /**
      * Accesseur de l'Id de la saison de l'épisode de la classe Episode. Renvoie un entier.
      *
-     * @return int Renvoie l'id de la saison
+     * @return int Renvoie l'id de la saison à laquelle l'épisode appartient.
      */
     public function getSeasonId(): int
     {
@@ -35,7 +35,7 @@ class Episode
     /**
      * Accesseur du nom de l'épisode de la classe Episode. Renvoie un string.
      *
-     * @return string Renvoie le nom de l'épisode
+     * @return string Renvoie le nom de l'épisode.
      */
     public function getName(): string
     {
@@ -45,7 +45,7 @@ class Episode
     /**
      * Accesseur du résumé de l'épisode de la classe Episode. Renvoie un string.
      *
-     * @return string Renvoie le résumé de l'épisode
+     * @return string Renvoie le résumé de l'épisode.
      */
     public function getOverview(): string
     {
@@ -53,14 +53,12 @@ class Episode
     }
 
     /**
-     * Accesseur du nombre d'épisodes de la classe Episode. Renvoie un entier.
+     * Accesseur du numéro de l'épisode de la classe Episode. Renvoie un entier.
      *
-     * @return int Renvoie le nombre correspondant à l'épisode
+     * @return int Renvoie le numéro de l'épisode dans la saison.
      */
     public function getEpisodeNumber(): int
     {
         return $this->episodeNumber;
     }
-
-
 }
