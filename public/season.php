@@ -15,7 +15,7 @@ if(!empty($_GET['seasonId']) && is_numeric($_GET['seasonId'])) {
 
 try {
     $season = Season::findById(intval($seasonId));
-    $tvShow = TvShow::findById(intval($season->getTvShowId()));
+    $tvShow = TvShow::findById($season->getTvShowId());
 } catch (Entity\Exception\EntityNotFoundException $exception) {
     http_response_code(404);
     exit;
