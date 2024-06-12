@@ -41,7 +41,7 @@
                           "php vendor/bin/codecept run"],
         "test:crud": "php vendor/bin/codecept run Crud",
         "test:form": ["php vendor/bin/codecept clean",
-            "php vendor/bin/codecept run Form"],
+                      "php vendor/bin/codecept run Form"],
         "test": ["@test:cs",
                 "@test:codecept",
                 "@test:form"]

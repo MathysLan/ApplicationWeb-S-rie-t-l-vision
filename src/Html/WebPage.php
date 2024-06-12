@@ -6,8 +6,6 @@ namespace Html;
 
 require_once '../vendor/autoload.php';
 
-use Html\StringEscaper;
-
 class WebPage
 {
     use StringEscaper;
@@ -99,7 +97,7 @@ class WebPage
     }
 
     /**
-     * Méthode permettant d'ajouter à la fin du head l'url passé en paramètre sous la forme d'une chaine de caractère.
+     * Méthode permettant d'ajouter à la fin du head l'URL passée en paramètre sous la forme d'une chaine de caractère.
      *
      * @param string $url
      * @return void
@@ -128,7 +126,7 @@ class WebPage
 
     }
 
-    /**Méthode permettant d'ajouter à la fin du head l'url du javascript passé en paramètre sous la forme d'une chaine de caractère.
+    /**Méthode permettant d'ajouter à la fin du head l'URL du javascript passée en paramètre sous la forme d'une chaine de caractère.
      * @param string $url
      * @return void
      */

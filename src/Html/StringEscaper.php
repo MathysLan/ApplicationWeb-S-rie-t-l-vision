@@ -9,8 +9,8 @@ trait StringEscaper
     /**
      * Méthode permettant de protéger une chaine de caractère passé en paramètre en formatant les caractères spéciaux.
      *
-     * @param string $string
-     * @return string
+     * @param string|null $string Chaine de caractère à protéger
+     * @return string|null La chaine de caractère protégée
      */
     public static function escapeString(?string $string = ""): ?string
     {
@@ -23,7 +23,7 @@ trait StringEscaper
     }
 
     /**
-     * Méthode permettant de retirer tout les balises et les espaces au début et à la fin de la chaine caractère.
+     * Méthode permettant de retirer toutes les balises et les espaces au début et à la fin de la chaine caractère.
      * @param string|null $text
      * @return string
      */

@@ -41,12 +41,12 @@ class Poster
      */
     public static function findById(int $id): Poster
     {
-        $requete = <<<SQL
+        $request = <<<SQL
         SELECT id, jpeg
         FROM poster
         WHERE id = ?
         SQL; // Définition de la requête SQL pour récupérer le poster par son identifiant.
-        $stmt = MyPDO::getInstance()->prepare($requete); // Préparation de la requête SQL.
+        $stmt = MyPDO::getInstance()->prepare($request); // Préparation de la requête SQL.
         $stmt->execute([$id]); // Exécution de la requête SQL avec l'identifiant du poster.
         if (!($ligne = $stmt->fetchObject("Entity\Poster"))) { // Vérification si le poster est trouvé.
             throw new EntityNotFoundException(); // Si le poster n'est pas trouvé, lancer une exception EntityNotFoundException.
