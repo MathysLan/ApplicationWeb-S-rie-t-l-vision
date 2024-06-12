@@ -10,12 +10,12 @@ use PDO;
 
 class TvShow
 {
-    private ?int $id;
-    private string $name;
-    private string $originalName;
-    private string $homepage;
-    private string $overview;
-    private ?int $posterId;
+    private ?int $id; // Identifiant de l'émission.
+    private string $name; // Nom de l'émission
+    private string $originalName; // Nom original de l'émission
+    private string $homepage; // Lien vers l'émission
+    private string $overview; // Résumé de l'émission
+    private ?int $posterId; // Poster de l'émission
 
     /**
      * Constructeur privé de la classe TvShow
@@ -284,7 +284,7 @@ class TvShow
     /**
      * Liste les saisons de la série
      *
-     * @return TvShow[]
+     * @return TvShow[] Tableau des saisons de l'émission
      */
     public function getSeasons(): array
     {

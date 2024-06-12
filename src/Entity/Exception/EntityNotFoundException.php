@@ -8,4 +8,6 @@ use Exception;
 
 class EntityNotFoundException extends Exception
 {
+    // Cette classe ne contient aucune méthode ou propriété supplémentaire.
+    // Elle hérite toutes les fonctionnalités de la classe Exception de PHP.
 }

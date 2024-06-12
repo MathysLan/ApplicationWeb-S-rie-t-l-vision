@@ -10,14 +10,14 @@ use Html\StringEscaper;
 
 class TvShowForm
 {
-    use StringEscaper;
+    use StringEscaper; // On appelle StringEscaper qui nous permettra d'utiliser des méthodes pour protégé et nettoyer les chaines de caractères des query strings
 
     private ?TvShow $tvShow;
 
     /**
      * Constructeur public de la classe TvShowForm
      *
-     * @param TvShow|null $tvShow
+     * @param TvShow|null $tvShow L'émission que l'on veut modifier ou rien si l'on créait une nouvelle émission
      */
     public function __construct(?TvShow $tvShow = null)
     {
@@ -27,7 +27,7 @@ class TvShowForm
     /**
      * Accesseur de la propriété tvShow
      *
-     * @return TvShow|null
+     * @return TvShow|null Renvoie l'émission
      */
     public function getTvShow(): ?TvShow
     {
@@ -37,8 +37,8 @@ class TvShowForm
     /**
      * Méthode permettant de récupérer un formulaire html avec l'action passé en paramètre
      *
-     * @param string $action
-     * @return string
+     * @param string $action Lien vers l'action qui s'effectuera lorsqu'on cliquera sur le bouton enregistrer
+     * @return string Renvoie le formulaire sous forme d'un HTML
      */
     public function getHtmlForm(string $action): string
     {
@@ -67,7 +67,7 @@ class TvShowForm
     /**
      * Méthode permettant de créer un tvShow à partir des informations dans les query strings
      * @return void
-     * @throws ParameterException
+     * @throws ParameterException Erreur s'il manque un paramètre lors de la création d'un tvShow
      */
     public function setEntityFromQueryString(): void
     {
