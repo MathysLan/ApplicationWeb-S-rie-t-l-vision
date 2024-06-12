@@ -103,4 +103,25 @@ class TvShowCest
         $I->assertSame('Nœud Coulant', $tvShow->getOverview());
         $I->assertSame(16, $tvShow->getPosterId());
     }
+
+    /**
+     * @after createWithoutId
+     */
+    public function insert(CrudTester $I)
+    {
+        $tvShow = TvShow::create('Nœud Coulant', 'Nœud Coulant', 'https://iut-info.univ-reims.fr', 'Nœud Coulant');
+        $tvShow->save();
+        $I->canSeeNumRecords(1, 'tvshow', [
+            'id' => 83,
+            'name' => 'Nœud Coulant',
+            'originalName' => 'Nœud Coulant',
+            'homepage' => 'https://iut-info.univ-reims.fr',
+            'overview' => 'Nœud Coulant'
+        ]);
+        $I->assertSame($tvShow->getId(), 83);
+        $I->assertSame('Nœud Coulant', $tvShow->getName());
+        $I->assertSame('Nœud Coulant', $tvShow->getOriginalName());
+        $I->assertSame('https://iut-info.univ-reims.fr', $tvShow->getHomepage());
+        $I->assertSame('Nœud Coulant', $tvShow->getOverview());
+    }
 }
