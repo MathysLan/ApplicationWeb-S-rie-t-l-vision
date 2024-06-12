@@ -74,22 +74,20 @@ class TvShowForm
         $id = null;
         $posterId = null;
         if (isset($_POST['id']) && ctype_digit($_POST['id'])) {
-            $id = $this->escapeString($_POST['id']);
             $id = (int)$this->stripTagsAndTrim($id);
         }
         if (isset($_POST['posterId']) && ctype_digit($_POST['posterId'])) {
-            $id = $this->escapeString($_POST['posterId']);
-            $id = (int)$this->stripTagsAndTrim($id);
+            $posterId = (int)$this->stripTagsAndTrim($posterId);
         }
         if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['originalName']) || empty($_POST['originalName'])
             || !isset($_POST['homepage']) || empty($_POST['homepage']) || !isset($_POST['overview']) || empty($_POST['overview'])) {
             throw new ParameterException();
         }
         $tvShow = TvShow::create(
-            $this->stripTagsAndTrim($this->escapeString($_POST['name'])),
-            $this->stripTagsAndTrim($this->escapeString($_POST['originalName'])),
-            $this->stripTagsAndTrim($this->escapeString($_POST['homepage'])),
-            $this->stripTagsAndTrim($this->escapeString($_POST['overview'])),
+            $this->stripTagsAndTrim($_POST['name']),
+            $this->stripTagsAndTrim($_POST['originalName']),
+            $this->stripTagsAndTrim($_POST['homepage']),
+            $this->stripTagsAndTrim($_POST['overview']),
             $id,
             $posterId
         );
