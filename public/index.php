@@ -28,7 +28,7 @@ $webPage->appendJs("function toggleMenu() {
 $webPage->appendMenu(" <a href='admin/tvShow-form.php'>Ajouter</a>");
 
 if ($genre === null) {
-    $webPage->appendMenu("<button class='burger-menu' onclick='toggleMenu()'>Filtre</button>");
+    $webPage->appendMenu("<button class='burger-menu' onclick='toggleMenu()'><img src='img/icons8-filtre-24.png' alt='Filtre'></button>");
     $webPage->appendContent(" <div class='filter'>");
     foreach(GenreCollection::findAll() as $genre) {
         $webPage->appendContent("<p><a href='index.php?genreId={$genre->getId()}'>{$genre->getName()}</a></p>");
