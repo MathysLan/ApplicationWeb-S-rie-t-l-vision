@@ -13,7 +13,7 @@ class GenreCollection
     /**
      * Méthode static renvoyant tous les genres avec leur id et leur nom
      *
-     * @return Genre[]
+     * @return Genre[] Retourne un tableau d'objets Genre.
      */
     public static function findAll(): array
     {
@@ -23,8 +23,8 @@ class GenreCollection
             FROM genre
             ORDER BY name
          SQL
-        );
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, "Entity\Genre");
+        ); // Préparer une requête SQL pour sélectionner tous les genres triés par nom.
+        $stmt->execute(); // Exécuter la requête.
+        return $stmt->fetchAll(PDO::FETCH_CLASS, "Entity\Genre"); // Récupérer les résultats sous forme d'objets de la classe Genre et les retourner.
     }
 }
