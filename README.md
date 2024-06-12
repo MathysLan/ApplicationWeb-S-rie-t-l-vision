@@ -48,6 +48,7 @@ Dans ce fichier, il faut remplacer :
 - `your_db_name` par le nom de la base de données que vous souhaitez consulter
 - `your_login` par votre identifiant pour consulter cette base de données
 - `your_mdp` par votre mot de passe
+Le script de création de la base de données est disponible [ici](https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction/dl.php%3Ff=%252Fbut%252Fs2%252Fsae2-01%252Fressources%252Fjonque01_tvshow.sql)
 
 ## Mise en route
 Voici la commande pour lancer le server Web local :
